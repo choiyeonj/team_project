@@ -464,15 +464,40 @@ $color: #fd8234;
 
 /* -------------best--------------- */
 .issue_my_area {
+    height: 700px;
     .title {
         font-family: 'Noto Sans KR', sans-serif;
+        padding: 75px 0 30px;
     }
     .issue_swiper {
-        ul {
+        @include size(1180px, 500px);
+
+        .living_main {
+            @include size(40%, 460px);
+            position: relative;
             display: flex;
+            float: left;
 
             li {
-                @include size(220px, 220px);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+        .living_img {
+            @include size(60%, 460px);
+            display: flex;
+            flex-wrap: wrap;
+            align-content: space-between;
+            justify-content: space-around;
+
+            li {
+                height: 220px;
+                a {
+                    img {
+                        @include size(220px, 220px);
+                    }
+                }
             }
         }
     }

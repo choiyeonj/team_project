@@ -77,8 +77,11 @@ let bestSwiper = new Swiper('.best_swiper', {
 
 /* -------------issue_swiper--------------- */
 var swiper = new Swiper('.issue_swiper', {
-    scrollbar: {
-        el: '.swiper-scrollbar',
-        hide: true,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        renderBullet: function (index, className) {
+            return '<span class="' + className + '">' + index + '거실' + '</span>';
+        },
     },
 });

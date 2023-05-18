@@ -390,13 +390,41 @@ img {
 }
 
 /* -------------best--------------- */
+.issue_my_area {
+  height: 700px;
+}
 .issue_my_area .title {
   font-family: "Noto Sans KR", sans-serif;
+  padding: 75px 0 30px;
 }
-.issue_my_area .issue_swiper ul {
+.issue_my_area .issue_swiper {
+  width: 1180px;
+  height: 500px;
+}
+.issue_my_area .issue_swiper .living_main {
+  width: 40%;
+  height: 460px;
+  position: relative;
   display: flex;
+  float: left;
 }
-.issue_my_area .issue_swiper ul li {
+.issue_my_area .issue_swiper .living_main li {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.issue_my_area .issue_swiper .living_img {
+  width: 60%;
+  height: 460px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-around;
+}
+.issue_my_area .issue_swiper .living_img li {
+  height: 220px;
+}
+.issue_my_area .issue_swiper .living_img li a img {
   width: 220px;
   height: 220px;
 }
