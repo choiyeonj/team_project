@@ -393,5 +393,12 @@ img {
 .issue_my_area .title {
   font-family: "Noto Sans KR", sans-serif;
 }
+.issue_my_area .issue_swiper ul {
+  display: flex;
+}
+.issue_my_area .issue_swiper ul li {
+  width: 220px;
+  height: 220px;
+}
 
 /* -------------best--------------- *//*# sourceMappingURL=main.css.map */

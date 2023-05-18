@@ -467,5 +467,14 @@ $color: #fd8234;
     .title {
         font-family: 'Noto Sans KR', sans-serif;
     }
+    .issue_swiper {
+        ul {
+            display: flex;
+
+            li {
+                @include size(220px, 220px);
+            }
+        }
+    }
 }
 /* -------------best--------------- */
