@@ -41,8 +41,10 @@ img {
 
 .title {
   font-size: 28px;
+  font-weight: 500;
   text-align: center;
   font-family: "Poppins", sans-serif;
+  letter-spacing: 1.5px;
 }
 
 /* -------------header--------------- */
@@ -64,6 +66,10 @@ img {
   align-items: center;
   padding: 0 25px;
   justify-content: space-between;
+}
+.header .header_inner ul li:hover > a {
+  color: #fd8234;
+  transition: all 0.3s;
 }
 .header .header_inner .header_left {
   position: relative;
@@ -124,6 +130,31 @@ img {
   line-height: 60px;
   margin-right: 0;
   border-bottom: 1px solid #eee;
+}
+.header .header_inner .header_left .lnb > ul .brand_story {
+  position: relative;
+}
+.header .header_inner .header_left .lnb > ul .brand_story:hover .story_box {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.3s;
+}
+.header .header_inner .header_left .lnb > ul .brand_story .story_box {
+  visibility: hidden;
+  opacity: 0;
+}
+.header .header_inner .header_left .lnb > ul .brand_story .story_box ul {
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  display: flex;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  padding-left: 184px;
 }
 .header .header_inner .header_left .lnb > ul li {
   margin-right: 35px;
@@ -285,7 +316,7 @@ img {
 /* -------------best--------------- */
 .best {
   width: 100%;
-  height: 650px;
+  height: 685px;
   background-color: #f8f8f8;
   margin-bottom: 50px;
 }
@@ -356,6 +387,11 @@ img {
 .best .best_swiper ul li a .txt_box p:last-child {
   font-size: 13px;
   font-weight: bold;
+}
+
+/* -------------best--------------- */
+.issue_my_area .title {
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 /* -------------best--------------- *//*# sourceMappingURL=main.css.map */

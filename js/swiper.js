@@ -74,3 +74,11 @@ let bestSwiper = new Swiper('.best_swiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
+/* -------------issue_swiper--------------- */
+var swiper = new Swiper('.issue_swiper', {
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        hide: true,
+    },
+});

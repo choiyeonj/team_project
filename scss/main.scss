@@ -42,9 +42,11 @@ img {
 .title {
     font: {
         size: 28px;
+        weight: 500;
     }
     text-align: center;
     font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
 }
 
 @mixin size($width, $height) {
@@ -82,6 +84,17 @@ $color: #fd8234;
         @include flex_style();
         padding: 0 25px;
         justify-content: space-between;
+
+        ul {
+            li {
+                &:hover {
+                    > a {
+                        color: #fd8234;
+                        transition: all 0.3s;
+                    }
+                }
+            }
+        }
 
         .header_left {
             position: relative;
@@ -153,6 +166,35 @@ $color: #fd8234;
                                     margin-right: 0;
                                     border-bottom: 1px solid #eee;
                                 }
+                            }
+                        }
+                    }
+
+                    .brand_story {
+                        position: relative;
+
+                        &:hover {
+                            .story_box {
+                                visibility: visible;
+                                opacity: 1;
+                                transition: all 0.3s;
+                            }
+                        }
+
+                        .story_box {
+                            visibility: hidden;
+                            opacity: 0;
+
+                            ul {
+                                position: fixed;
+                                top: 80px;
+                                left: 0;
+                                @include size(100%, 60px);
+                                @include line(60px);
+                                display: flex;
+                                background-color: #fff;
+                                border-bottom: 1px solid #ccc;
+                                padding-left: 184px;
                             }
                         }
                     }
@@ -332,7 +374,7 @@ $color: #fd8234;
 
 /* -------------best--------------- */
 .best {
-    @include size(100%, 650px);
+    @include size(100%, 685px);
     background-color: #f8f8f8;
     margin-bottom: 50px;
 
@@ -420,4 +462,10 @@ $color: #fd8234;
     }
 }
 
+/* -------------best--------------- */
+.issue_my_area {
+    .title {
+        font-family: 'Noto Sans KR', sans-serif;
+    }
+}
 /* -------------best--------------- */
