@@ -80,8 +80,35 @@ var swiper = new Swiper('.issue_swiper', {
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + index + '거실' + '</span>';
+        renderBullet: function (index, living) {
+            return '<span class="' + living + '">' + '</span>';
         },
     },
 });
+
+const livingMain = document.querySelector('.living_main li a img');
+const livingImg = document.querySelectorAll('.living_img li img');
+
+const diningMain = document.querySelector('.dining_main li a img');
+const diningImg = document.querySelectorAll('.dining_img li img');
+
+const bedMain = document.querySelector('.bed_main li a img');
+const bedImg = document.querySelectorAll('.bed_img li img');
+
+const tableMain = document.querySelector('.table_main li a img');
+const tableImg = document.querySelectorAll('.table_img li img');
+
+for (let i = 0; i < livingImg.length; i++) {
+    livingImg[i].onclick = function () {
+        livingMain.src = './images/issue_living' + (i + 1) + '.png';
+    };
+    diningImg[i].onclick = function () {
+        diningMain.src = './images/issue_dining' + (i + 1) + '.png';
+    };
+    bedImg[i].onclick = function () {
+        bedMain.src = './images/issue_bed' + (i + 1) + '.png';
+    };
+    tableImg[i].onclick = function () {
+        tableMain.src = './images/issue_table' + (i + 1) + '.png';
+    };
+}

@@ -447,32 +447,34 @@ $color: #fd8234;
                             }
                         }
                     }
-                    // &::before {
-                    //     content: '';
-                    //     position: absolute;
-                    //     top: 0;
-                    //     left: 0;
-                    //     @include size(340px, 340px);
-                    //     background: rgba(34, 34, 34, 0.4);
-                    //     display: block;
-                    // }
                 }
             }
         }
     }
 }
 
-/* -------------best--------------- */
+/* -------------issue_my_area--------------- */
 .issue_my_area {
     height: 700px;
     .title {
         font-family: 'Noto Sans KR', sans-serif;
-        padding: 75px 0 30px;
+        padding: 75px 0;
     }
     .issue_swiper {
+        position: relative;
         @include size(1180px, 500px);
 
-        .living_main {
+        .swiper-slide {
+            ul {
+                > span {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                }
+            }
+        }
+
+        .left_img {
             @include size(40%, 460px);
             position: relative;
             display: flex;
@@ -484,7 +486,7 @@ $color: #fd8234;
                 left: 0;
             }
         }
-        .living_img {
+        .right_img {
             @include size(60%, 460px);
             display: flex;
             flex-wrap: wrap;
@@ -493,10 +495,10 @@ $color: #fd8234;
 
             li {
                 height: 220px;
-                a {
-                    img {
-                        @include size(220px, 220px);
-                    }
+                cursor: pointer;
+
+                img {
+                    @include size(220px, 220px);
                 }
             }
         }

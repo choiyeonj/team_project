@@ -389,31 +389,37 @@ img {
   font-weight: bold;
 }
 
-/* -------------best--------------- */
+/* -------------issue_my_area--------------- */
 .issue_my_area {
   height: 700px;
 }
 .issue_my_area .title {
   font-family: "Noto Sans KR", sans-serif;
-  padding: 75px 0 30px;
+  padding: 75px 0;
 }
 .issue_my_area .issue_swiper {
+  position: relative;
   width: 1180px;
   height: 500px;
 }
-.issue_my_area .issue_swiper .living_main {
+.issue_my_area .issue_swiper .swiper-slide ul > span {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.issue_my_area .issue_swiper .left_img {
   width: 40%;
   height: 460px;
   position: relative;
   display: flex;
   float: left;
 }
-.issue_my_area .issue_swiper .living_main li {
+.issue_my_area .issue_swiper .left_img li {
   position: absolute;
   top: 0;
   left: 0;
 }
-.issue_my_area .issue_swiper .living_img {
+.issue_my_area .issue_swiper .right_img {
   width: 60%;
   height: 460px;
   display: flex;
@@ -421,10 +427,11 @@ img {
   align-content: space-between;
   justify-content: space-around;
 }
-.issue_my_area .issue_swiper .living_img li {
+.issue_my_area .issue_swiper .right_img li {
   height: 220px;
+  cursor: pointer;
 }
-.issue_my_area .issue_swiper .living_img li a img {
+.issue_my_area .issue_swiper .right_img li img {
   width: 220px;
   height: 220px;
 }

@@ -196,11 +196,36 @@ var swiper = new Swiper('.issue_swiper', {
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
-    renderBullet: function renderBullet(index, className) {
-      return '<span class="' + className + '">' + index + '거실' + '</span>';
+    renderBullet: function renderBullet(index, living) {
+      return '<span class="' + living + '">' + '</span>';
     }
   }
 });
+var livingMain = document.querySelector('.living_main li a img');
+var livingImg = document.querySelectorAll('.living_img li img');
+var diningMain = document.querySelector('.dining_main li a img');
+var diningImg = document.querySelectorAll('.dining_img li img');
+var bedMain = document.querySelector('.bed_main li a img');
+var bedImg = document.querySelectorAll('.bed_img li img');
+var tableMain = document.querySelector('.table_main li a img');
+var tableImg = document.querySelectorAll('.table_img li img');
+var _loop = function _loop(i) {
+  livingImg[i].onclick = function () {
+    livingMain.src = './images/issue_living' + (i + 1) + '.png';
+  };
+  diningImg[i].onclick = function () {
+    diningMain.src = './images/issue_dining' + (i + 1) + '.png';
+  };
+  bedImg[i].onclick = function () {
+    bedMain.src = './images/issue_bed' + (i + 1) + '.png';
+  };
+  // tableImg[i].onclick = function () {
+  //     tableMain.src = './images/issue_table' + (i + 1) + '.png';
+  // };
+};
+for (var i = 0; i < livingImg.length; i++) {
+  _loop(i);
+}
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -226,7 +251,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51696" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55495" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
