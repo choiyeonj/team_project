@@ -6,7 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Team_Project</title>
 
-        <script src="./js/swiper.js" defer></script>
+        <script src="./js/main.js" defer></script>
+
         <!-- swiper_js -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
@@ -69,13 +70,13 @@
                 <!-- header_left -->
 
                 <div class="header_right">
-                    <ul>
+                    <ul id="menu_right">
                         <li class="search_icon">
                             <input type="search" />
                             <button><i class="fas fa-search"></i></button>
                         </li>
-                        <li><a href="#!">Login</a></li>
-                        <li><a href="#!">My page</a></li>
+                        <li><a href="./login/login.html">Login</a></li>
+                        <li><a href="./login/login.html">My page</a></li>
                         <li><a href="#!">Cart</a></li>
                     </ul>
                 </div>
@@ -314,130 +315,297 @@
         </section>
         <!-- best -->
 
-        <div class="issue_my_area">
+        <article class="issue_my_area">
             <p class="title">내 공간에 꼭 맞는 조명</p>
-
             <div class="swiper issue_swiper">
+                <ul class="slide_tit">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <ul class="living_main left_img">
                             <li>
-                                <a href="#!">
-                                    <img src="./images/issue_living1.png" alt="main_living1" />
-                                </a>
+                                <img src="./images/issue_living1.png" alt="main_living1" />
                             </li>
                         </ul>
                         <ul class="living_img right_img">
                             <li>
-                                <img src="./images/living1.jpg" alt="living1" />
+                                <a href="#!">
+                                    <img src="./images/living1.jpg" alt="living1" />
+                                    <div class="txt_box">
+                                        <p>SNOWMAN22 SOLID Table Stand All Butter</p>
+                                        <p>230,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/living2.jpg" alt="living2" />
+                                <a href="#!">
+                                    <img src="./images/living2.jpg" alt="living2" />
+                                    <div class="txt_box">
+                                        <p>SNOWBALL22 SOLID Table Stand 2Colors</p>
+                                        <p>210,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/living3.jpg" alt="living3" />
+                                <a href="#!">
+                                    <img src="./images/living3.jpg" alt="living3" />
+                                    <div class="txt_box">
+                                        <p>NEST25 Pendant Clear</p>
+                                        <p>120,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/living4.jpg" alt="living4" />
+                                <a href="#!">
+                                    <img src="./images/living4.jpg" alt="living4" />
+                                    <div class="txt_box">
+                                        <p>SATURN55 SMART Pendant White</p>
+                                        <p>240,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/living5.jpg" alt="living5" />
+                                <a href="#!">
+                                    <img src="./images/living5.jpg" alt="living5" />
+                                    <div class="txt_box">
+                                        <p>TEACUP R Table Stand 2Colors</p>
+                                        <p>75,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/living6.jpg" alt="living6" />
+                                <a href="#!">
+                                    <img src="./images/living6.jpg" alt="living6" />
+                                    <div class="txt_box">
+                                        <p>SWAN Table Stand ODENSE Editiont</p>
+                                        <p>240,000원</p>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div class="swiper-slide">
                         <ul class="dining_main left_img">
                             <li>
-                                <a href="#!">
-                                    <img src="./images/issue_dining1.png" alt="main_dining1" />
-                                </a>
+                                <img src="./images/issue_dining1.png" alt="main_dining1" />
                             </li>
                         </ul>
                         <ul class="dining_img right_img">
                             <li>
-                                <img src="./images/dinig1.jpg" alt="dinig1" />
+                                <a href="#!">
+                                    <img src="./images/dinig1.jpg" alt="dinig1" />
+                                    <div class="txt_box">
+                                        <p>IK 시리즈 SNOWMAN15 Portable Stand</p>
+                                        <p>110,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/dinig2.jpg" alt="dinig2" />
+                                <a href="#!">
+                                    <img src="./images/dinig2.jpg" alt="dinig2" />
+                                    <div class="txt_box">
+                                        <p>CANDLE9 Table Stand 5Colors</p>
+                                        <p>55,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/dinig3.jpg" alt="dinig3" />
+                                <a href="#!">
+                                    <img src="./images/dinig3.jpg" alt="dinig3" />
+                                    <div class="txt_box">
+                                        <p>TEACUP R Table Stand 2Colors</p>
+                                        <p>75,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/dinig4.jpg" alt="dinig4" />
+                                <a href="#!">
+                                    <img src="./images/dinig4.jpg" alt="dinig4" />
+                                    <div class="txt_box">
+                                        <p>PINOCCHIO120 A Pendant 3Colors</p>
+                                        <p>290,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/dinig5.jpg" alt="dinig5" />
+                                <a href="#!">
+                                    <img src="./images/dinig5.jpg" alt="dinig5" />
+                                    <div class="txt_box">
+                                        <p>MAGRITTE25 Pendant 4Colors</p>
+                                        <p>280,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/dinig6.jpg" alt="dinig6" />
+                                <a href="#!">
+                                    <img src="./images/dinig6.jpg" alt="dinig6" />
+                                    <div class="txt_box">
+                                        <p>B-DAY45 Pendant 3Colors</p>
+                                        <p>340,000원</p>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div class="swiper-slide">
                         <ul class="bed_main left_img">
                             <li>
-                                <a href="#!">
-                                    <img src="./images/issue_bed1.png" alt="main_bed1" />
-                                </a>
+                                <img src="./images/issue_bed1.png" alt="main_bed1" />
                             </li>
                         </ul>
                         <ul class="bed_img right_img">
                             <li>
-                                <img src="./images/bed1.jpg" alt="bed1" />
+                                <a href="#!">
+                                    <img src="./images/bed1.jpg" alt="bed1" />
+                                    <div class="txt_box">
+                                        <p>SNOWBALL22 Table Stand 2Colors</p>
+                                        <p>200,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/bed2.jpg" alt="bed2" />
+                                <a href="#!">
+                                    <img src="./images/bed2.jpg" alt="bed2" />
+                                    <div class="txt_box">
+                                        <p>ACORN22 Floor Stand 5Colors</p>
+                                        <p>270,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/bed3.jpg" alt="bed3" />
+                                <a href="#!">
+                                    <img src="./images/bed3.jpg" alt="bed3" />
+                                    <div class="txt_box">
+                                        <p>SWAN2 Floor Stand</p>
+                                        <p>340,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/bed4.jpg" alt="bed4" />
+                                <a href="#!">
+                                    <img src="./images/bed4.jpg" alt="bed4" />
+                                    <div class="txt_box">
+                                        <p>SNOWBALL22 Floor Stand 2Colors</p>
+                                        <p>320,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/bed5.jpg" alt="bed5" />
+                                <a href="#!">
+                                    <img src="./images/bed5.jpg" alt="bed5" />
+                                    <div class="txt_box">
+                                        <p>SNOWMAN22 Floor Stand Butter</p>
+                                        <p>340,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/bed6.jpg" alt="bed6" />
+                                <a href="#!">
+                                    <img src="./images/bed6.jpg" alt="bed6" />
+                                    <div class="txt_box">
+                                        <p>APOLLO22 Table Stand 2Colors</p>
+                                        <p>340,000원</p>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
                     <div class="swiper-slide">
                         <ul class="table_main left_img">
                             <li>
-                                <a href="#!">
-                                    <img src="./images/issue_table1.png" alt="main_table1" />
-                                </a>
+                                <img src="./images/issue_table1.png" alt="main_table1" />
                             </li>
                         </ul>
                         <ul class="table_img right_img">
                             <li>
-                                <img src="./images/table1.jpg" alt="table1" />
+                                <a href="#!">
+                                    <img src="./images/table1.jpg" alt="table1" />
+                                    <div class="txt_box">
+                                        <p>FROG22 Table Stand 5Colors</p>
+                                        <p>160,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/table2.jpg" alt="table2" />
+                                <a href="#!">
+                                    <img src="./images/table2.jpg" alt="table2" />
+                                    <div class="txt_box">
+                                        <p>IK 시리즈 FONDUE16 Table Stand KYOBO BOOK Edition</p>
+                                        <p>280,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/table3.jpg" alt="table3" />
+                                <a href="#!">
+                                    <img src="./images/table3.jpg" alt="table3" />
+                                    <div class="txt_box">
+                                        <p>TALLBOY16 Table Stand 6Colors</p>
+                                        <p>180,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/table4.jpg" alt="table4" />
+                                <a href="#!">
+                                    <img src="./images/table4.jpg" alt="table4" />
+                                    <div class="txt_box">
+                                        <p>WOOD2 SHADE Table Stand 2Colors</p>
+                                        <p>65,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/table5.jpg" alt="table5" />
+                                <a href="#!">
+                                    <img src="./images/table5.jpg" alt="table5" />
+                                    <div class="txt_box">
+                                        <p>ACORN38 Pendant 5Colors</p>
+                                        <p>120,000원</p>
+                                    </div>
+                                </a>
                             </li>
                             <li>
-                                <img src="./images/table6.jpg" alt="table6" />
+                                <a href="#!">
+                                    <img src="./images/table6.jpg" alt="table6" />
+                                    <div class="txt_box">
+                                        <p>LANDSCAPE68 Table Stand Industrial Gray</p>
+                                        <p>890,000원</p>
+                                    </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
-        </div>
+        </article>
+
+        <section class="brand_history">
+            <div class="left_history">
+                <img src="./images/history.png" alt="brand_story" />
+            </div>
+            <div class="right_history">
+                <div class="right_box">
+                    <p class="title">일광전구 브랜드 스토리</p>
+                    <h1>We Make Light</h1>
+
+                    <div class="story_box">
+                        <p>
+                            백열전구에 대한 신념을 바탕으로 오래된 빛에 디자인을 더해 <br />
+                            새로운 제품으로 만들어나가는 도전을 계속합니다.
+                        </p>
+                        <p>
+                            반세기 동안 백열전구를 비롯한 다양한 전구들을 다루며 <br />
+                            각자의 빛에는 알맞은 쓰임이 있다는 사실을 알게 되었습니다.
+                        </p>
+                        <p>
+                            장인기업으로서 빛에 대한 노하우를 갖고 있는 일광전구는 아름다운 빛을 올바르게 사용하며 <br />
+                            가치있는 자신의 삶을 꾸어가는 지혜를 전하는 길잡이가 되고자 합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </body>
 </html>

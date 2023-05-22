@@ -49,6 +49,29 @@ img {
     letter-spacing: 1.5px;
 }
 
+.txt_box {
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 15px 15px;
+
+    p {
+        &:first-child {
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        &:last-child {
+            font: {
+                size: 13px;
+                weight: bold;
+            }
+        }
+    }
+}
+
 @mixin size($width, $height) {
     width: $width;
     height: $height;
@@ -327,28 +350,6 @@ $color: #fd8234;
                     @include size(360px, 360px);
                     overflow: hidden;
 
-                    .txt_box {
-                        @include size(100%, 75px);
-                        position: absolute;
-                        bottom: 0;
-                        left: 0;
-                        background-color: rgba(255, 255, 255, 0.4);
-                        padding: 15px 15px;
-
-                        p {
-                            &:first-child {
-                                font-size: 12px;
-                                margin-bottom: 10px;
-                            }
-                            &:last-child {
-                                font: {
-                                    size: 13px;
-                                    weight: bold;
-                                }
-                            }
-                        }
-                    }
-
                     &:hover {
                         img {
                             transform: scale(1.3);
@@ -426,26 +427,7 @@ $color: #fd8234;
                     }
 
                     .txt_box {
-                        position: absolute;
-                        @include size(100%, 75px);
-                        bottom: 0;
-                        left: 0;
-                        background-color: rgba(255, 255, 255, 0.4);
-                        padding: 15px 15px;
                         display: none;
-
-                        p {
-                            &:first-child {
-                                font-size: 12px;
-                                margin-bottom: 10px;
-                            }
-                            &:last-child {
-                                font: {
-                                    size: 13px;
-                                    weight: bold;
-                                }
-                            }
-                        }
                     }
                 }
             }
@@ -458,18 +440,55 @@ $color: #fd8234;
     height: 700px;
     .title {
         font-family: 'Noto Sans KR', sans-serif;
-        padding: 75px 0;
+        padding: 55px 0 30px;
     }
+
     .issue_swiper {
         position: relative;
-        @include size(1180px, 500px);
+        @include size(1180px, 550px);
 
-        .swiper-slide {
-            ul {
-                > span {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
+        .slide_tit {
+            display: flex;
+            justify-content: center;
+            margin: 25px 0;
+            font-family: 'Noto Sans KR', sans-serif;
+
+            li {
+                display: flex;
+                align-items: center;
+                @include size(100px, 7px);
+                border-radius: 0;
+                margin: 0;
+                background: transparent;
+
+                &.swiper-pagination-bullet-active {
+                    transition: all 0.5s ease-in-out;
+                    color: #000000;
+                    background: $color;
+                }
+                &:nth-child(1)::after {
+                    content: '거실';
+                    color: #222;
+                    padding: 0px 34px 10px;
+                    height: 55px;
+                }
+                &:nth-child(2)::after {
+                    content: '다이닝';
+                    color: #222;
+                    padding: 0px 26px 10px;
+                    height: 55px;
+                }
+                &:nth-child(3)::after {
+                    content: '침실';
+                    color: #222;
+                    padding: 0px 34px 10px;
+                    height: 55px;
+                }
+                &:nth-child(4)::after {
+                    content: '테이블';
+                    color: #222;
+                    padding: 0px 26px 10px;
+                    height: 55px;
                 }
             }
         }
@@ -494,13 +513,81 @@ $color: #fd8234;
             justify-content: space-around;
 
             li {
+                position: relative;
                 height: 220px;
                 cursor: pointer;
+                overflow: hidden;
+
+                .txt_box {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    align-items: flex-end;
+                    font-size: 12px;
+                    padding: 10px 15px;
+                    bottom: -75px;
+
+                    p {
+                        &:first-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                &:hover {
+                    border-radius: 20px;
+                    box-shadow: 0 5px 14px #fd813438;
+                    transition: all 0.5s;
+
+                    .txt_box {
+                        bottom: 0;
+                        transition: all 0.5s;
+                    }
+                }
 
                 img {
                     @include size(220px, 220px);
                 }
             }
+        }
+    }
+}
+
+/* -------------brand_history--------------- */
+.brand_history {
+    overflow: hidden;
+
+    .left_history {
+        width: 48%;
+        float: left;
+        img {
+            @include size(700px, 700px);
+        }
+    }
+
+    .right_history {
+        width: 50%;
+        overflow: hidden;
+
+        .title {
+            margin: 78px 0 100px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+        .story_box {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 20px 0;
+
+            p {
+                padding: 0 0 30px;
+            }
+        }
+
+        .right_box {
+            @include size(100%, auto);
+            background-color: #f8f8f8;
         }
     }
 }
