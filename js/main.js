@@ -196,3 +196,25 @@ function slideUp() {
     downBtn.style.display = 'inline-block';
     txtBox.classList.remove('ani');
 }
+
+/* top_btn */
+const topBtn = document.querySelector('.top_btn');
+const btn = document.getElementsByClassName('buttons');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        gsap.to(btn, 0.3, {
+            opacity: 1,
+        });
+    } else {
+        gsap.to(btn, 0.3, {
+            opacity: 0,
+        });
+    }
+}); // window_scroll_event
+
+topBtn.addEventListener('click', () => {
+    gsap.to(window, 0.5, {
+        scrollTo: 0,
+    });
+});

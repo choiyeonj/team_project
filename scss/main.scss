@@ -789,3 +789,31 @@ $color: #fd8234;
         }
     }
 }
+
+/* -------------top_btn--------------- */
+.buttons {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    cursor: pointer;
+    text-align: center;
+    z-index: 50;
+
+    > div {
+        @include size(45px, 45px);
+        border-radius: 50%;
+        background-color: #261c13;
+        padding: 6px;
+        color: #efe8da;
+        font-size: 25px;
+
+        &.history_btn {
+            margin-bottom: 10px;
+        }
+
+        &:hover {
+            background-color: $color;
+            transition: all 0.3s;
+        }
+    }
+}
