@@ -10,6 +10,16 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+body::-webkit-scrollbar {
+  width: 12px;
+}
+body::-webkit-scrollbar-thumb {
+  background: #fd8234; /* 스크롤바 색상 */
+}
+body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1); /*스크롤바 뒷 배경 색상*/
 }
 
 li {
@@ -379,6 +389,7 @@ img {
 /* -------------issue_my_area--------------- */
 .issue_my_area {
   height: 700px;
+  margin-bottom: 50px;
 }
 .issue_my_area .title {
   font-family: "Noto Sans KR", sans-serif;
@@ -488,36 +499,185 @@ img {
 /* -------------brand_history--------------- */
 .brand_history {
   overflow: hidden;
+  margin-bottom: 50px;
 }
 .brand_history .left_history {
-  width: 48%;
+  width: 50%;
   float: left;
 }
-.brand_history .left_history img {
+.brand_history .left_history .left_box {
   width: 700px;
   height: 700px;
-}
-.brand_history .right_history {
-  width: 50%;
+  margin: 78px 150px 0;
   overflow: hidden;
 }
-.brand_history .right_history .title {
-  margin: 78px 0 100px;
+.brand_history .left_history .left_box:hover img {
+  transform: scale(1.1);
+  transition: all 1s;
 }
-.brand_history .right_history h1 {
-  margin-bottom: 40px;
-}
-.brand_history .right_history .story_box {
-  font-family: "Noto Sans KR", sans-serif;
-  margin: 20px 0;
-}
-.brand_history .right_history .story_box p {
-  padding: 0 0 30px;
-}
-.brand_history .right_history .right_box {
+.brand_history .right_history {
   width: 100%;
   height: auto;
   background-color: #f8f8f8;
 }
+.brand_history .right_history .right_box {
+  width: 50%;
+  overflow: hidden;
+}
+.brand_history .right_history .right_box .title {
+  font-family: "Noto Sans KR", sans-serif;
+  padding: 78px 0 100px;
+  text-align: left;
+}
+.brand_history .right_history .right_box h1 {
+  margin-bottom: 40px;
+}
+.brand_history .right_history .right_box .story_box {
+  font-family: "Noto Sans KR", sans-serif;
+  margin: 20px 0;
+}
+.brand_history .right_history .right_box .story_box p {
+  padding: 0 0 30px;
+}
+.brand_history .right_history .right_box .story_btn {
+  width: 180px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  background-color: #efe8da;
+  margin-bottom: 50px;
+}
+.brand_history .right_history .right_box .story_btn:hover {
+  background-color: #261c13;
+  transition: all 0.3s;
+}
+.brand_history .right_history .right_box .story_btn:hover a {
+  color: #fff;
+}
 
-/* -------------best--------------- *//*# sourceMappingURL=main.css.map */
+/* -------------instagram--------------- */
+.instagram {
+  width: 100%;
+  height: 650px;
+}
+.instagram .title {
+  padding: 70px 0 30px;
+}
+.instagram a p {
+  text-align: center;
+  padding-bottom: 65px;
+}
+.instagram .insta_box {
+  position: relative;
+}
+.instagram .insta_box .roller {
+  position: absolute;
+  width: 100%;
+}
+.instagram .insta_box .roller ul {
+  display: flex;
+  align-items: center;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.instagram .insta_box .roller ul li {
+  width: 100%;
+  height: 100%;
+}
+.instagram .insta_box .roller ul li a img {
+  width: 220px;
+  height: 220px;
+}
+
+/* -------------footer--------------- */
+.footer {
+  width: 100%;
+  height: 550px;
+  background-color: #261c13;
+  color: #fff;
+}
+.footer .footer_box {
+  width: 1420px;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+.footer .footer_box .top_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer_box .top_footer .cs_center p:nth-child(1) {
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer .footer_box .top_footer .cs_center p:nth-child(2) {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fd8234;
+}
+.footer .footer_box .top_footer .cs_center p:nth-child(3) {
+  font-size: 18px;
+  font-weight: 300;
+}
+.footer .footer_box .top_footer .insta_logo i {
+  color: #fff;
+  font-size: 40px;
+}
+.footer .footer_box .bottom_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer_box .bottom_footer .left_logo {
+  padding-top: 150px;
+}
+.footer .footer_box .bottom_footer .left_logo img {
+  width: 116px;
+  height: 135px;
+}
+.footer .footer_box .bottom_footer .left_logo p {
+  margin-top: 20px;
+}
+.footer .footer_box .bottom_footer .right_info > ul {
+  display: flex;
+  gap: 55px;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li {
+  font-weight: 700;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li ul {
+  margin-top: 15px;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li ul li {
+  padding: 5px 0;
+  font-weight: 300;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li ul li a {
+  color: #fff;
+}
+.footer .footer_box .bottom_footer .right_info .right_txt {
+  padding-top: 40px;
+  font-size: 14px;
+}
+.footer .footer_box .bottom_footer .right_info .right_txt .info_up {
+  display: none;
+}
+.footer .footer_box .bottom_footer .right_info .right_txt i {
+  cursor: pointer;
+  padding-left: 5px;
+}
+.footer .footer_box .bottom_footer .right_info .text_box {
+  position: absolute;
+  font-size: 14px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fd8234;
+  opacity: 0;
+}
+.footer .footer_box .bottom_footer .right_info .text_box a {
+  display: inline;
+  color: #fff;
+}
+.footer .footer_box .bottom_footer .right_info .text_box.ani {
+  animation: slideDown 0.35s ease-out;
+  opacity: 1;
+}/*# sourceMappingURL=main.css.map */

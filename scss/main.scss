@@ -10,6 +10,17 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    &::-webkit-scrollbar {
+        width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #fd8234; /* 스크롤바 색상 */
+    }
+
+    &::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1); /*스크롤바 뒷 배경 색상*/
+    }
+    overflow-x: hidden;
 }
 
 li {
@@ -438,6 +449,8 @@ $color: #fd8234;
 /* -------------issue_my_area--------------- */
 .issue_my_area {
     height: 700px;
+    margin-bottom: 50px;
+
     .title {
         font-family: 'Noto Sans KR', sans-serif;
         padding: 55px 0 30px;
@@ -556,39 +569,223 @@ $color: #fd8234;
 /* -------------brand_history--------------- */
 .brand_history {
     overflow: hidden;
+    margin-bottom: 50px;
 
     .left_history {
-        width: 48%;
-        float: left;
-        img {
-            @include size(700px, 700px);
-        }
-    }
-
-    .right_history {
         width: 50%;
-        overflow: hidden;
+        float: left;
 
-        .title {
-            margin: 78px 0 100px;
-        }
+        .left_box {
+            @include size(700px, 700px);
+            margin: 78px 150px 0;
+            overflow: hidden;
 
-        h1 {
-            margin-bottom: 40px;
-        }
-        .story_box {
-            font-family: 'Noto Sans KR', sans-serif;
-            margin: 20px 0;
-
-            p {
-                padding: 0 0 30px;
+            &:hover {
+                img {
+                    transform: scale(1.1);
+                    transition: all 1s;
+                }
             }
         }
+    }
+    .right_history {
+        @include size(100%, auto);
+        // height: 850px;
+        background-color: #f8f8f8;
 
         .right_box {
-            @include size(100%, auto);
-            background-color: #f8f8f8;
+            width: 50%;
+            overflow: hidden;
+            // padding-top: 80px;
+
+            .title {
+                font-family: 'Noto Sans KR', sans-serif;
+                padding: 78px 0 100px;
+                text-align: left;
+            }
+
+            h1 {
+                margin-bottom: 40px;
+            }
+            .story_box {
+                font-family: 'Noto Sans KR', sans-serif;
+                margin: 20px 0;
+
+                p {
+                    padding: 0 0 30px;
+                }
+            }
+            .story_btn {
+                @include size(180px, 50px);
+                @include line(50px);
+                background-color: #efe8da;
+                margin-bottom: 50px;
+
+                &:hover {
+                    background-color: #261c13;
+                    a {
+                        color: #fff;
+                    }
+                    transition: all 0.3s;
+                }
+            }
         }
     }
 }
-/* -------------best--------------- */
+/* -------------instagram--------------- */
+.instagram {
+    @include size(100%, 650px);
+
+    .title {
+        padding: 70px 0 30px;
+    }
+
+    a {
+        p {
+            text-align: center;
+            padding-bottom: 65px;
+        }
+    }
+
+    .insta_box {
+        position: relative;
+
+        .roller {
+            position: absolute;
+            width: 100%;
+
+            ul {
+                @include flex_style();
+                flex-flow: row nowrap;
+                justify-content: space-between;
+
+                li {
+                    @include size(100%, 100%);
+                    a {
+                        img {
+                            @include size(220px, 220px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* -------------footer--------------- */
+.footer {
+    @include size(100%, 550px);
+    background-color: #261c13;
+    color: #fff;
+
+    .footer_box {
+        width: 1420px;
+        margin: 0 auto;
+        padding-top: 60px;
+
+        .top_footer {
+            display: flex;
+            justify-content: space-between;
+
+            .cs_center {
+                p {
+                    &:nth-child(1) {
+                        font: {
+                            size: 20px;
+                            weight: bold;
+                        }
+                    }
+                    &:nth-child(2) {
+                        font: {
+                            size: 30px;
+                            weight: bold;
+                        }
+                        color: $color;
+                    }
+                    &:nth-child(3) {
+                        font: {
+                            size: 18px;
+                            weight: 300;
+                        }
+                    }
+                }
+            }
+
+            .insta_logo {
+                i {
+                    color: #fff;
+                    font-size: 40px;
+                }
+            }
+        }
+
+        .bottom_footer {
+            display: flex;
+            justify-content: space-between;
+
+            .left_logo {
+                padding-top: 150px;
+                img {
+                    @include size(116px, 135px);
+                }
+                p {
+                    margin-top: 20px;
+                }
+            }
+
+            .right_info {
+                > ul {
+                    display: flex;
+                    gap: 55px;
+
+                    > li {
+                        font-weight: 700;
+
+                        ul {
+                            margin-top: 15px;
+
+                            li {
+                                padding: 5px 0;
+                                font-weight: 300;
+                                a {
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .right_txt {
+                    padding-top: 40px;
+                    font-size: 14px;
+
+                    .info_up {
+                        display: none;
+                    }
+                    i {
+                        cursor: pointer;
+                        padding-left: 5px;
+                    }
+                }
+                .text_box {
+                    position: absolute;
+                    font-size: 14px;
+                    margin-top: 15px;
+                    padding: 10px;
+                    border-radius: 5px;
+                    background-color: $color;
+                    opacity: 0;
+
+                    a {
+                        display: inline;
+                        color: #fff;
+                    }
+                    &.ani {
+                        animation: slideDown 0.35s ease-out;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
