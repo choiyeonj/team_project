@@ -9,6 +9,7 @@
 }
 
 body {
+  background-color: #f8f8f8;
   font-family: "Poppins", sans-serif;
   overflow-x: hidden;
 }
@@ -183,7 +184,7 @@ img {
   text-align: center;
   display: flex;
   background-color: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
   padding-left: 184px;
 }
 .header .header_inner .header_left .lnb > ul li {
@@ -281,7 +282,7 @@ img {
   font-family: "Noto Sans KR", sans-serif;
 }
 .category .category_box {
-  padding: 30px 150px;
+  padding: 30px 200px;
 }
 .category .category_box ul {
   display: flex;
@@ -314,8 +315,174 @@ img {
 }
 
 /* -------------product_list--------------- */
+.product {
+  width: 1269px;
+  margin: 0 auto;
+}
+.product h1 {
+  padding: 30px 0;
+}
 .product .product_list {
   display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.product .product_list .best_box {
+  width: 275px;
+  height: 355px;
+  margin-bottom: 30px;
+}
+.product .product_list .best_box .products {
+  width: 275px;
+  height: 275px;
+}
+.product .product_list .best_box .products .pro_txt {
+  height: 80px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.product .product_list .best_box .products .pro_txt p:nth-child(1) {
+  font-size: 12px;
+}
+.product .product_list .best_box .products .pro_txt p:nth-child(2) {
+  font-size: 13px;
+  font-weight: bold;
+}
+.product .paging {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+.product .paging i {
+  padding: 0 2px;
+}
+.product .paging .pages {
+  padding: 0 5px;
+}
+.product .paging .pages span {
+  padding: 0 5px;
+}
+.product .paging .pages span.active {
+  color: #fd8234;
 }
 
-/* -------------header--------------- *//*# sourceMappingURL=sub.css.map */
+/* -------------footer--------------- */
+.footer {
+  width: 100%;
+  height: 550px;
+  background-color: #261c13;
+  color: #fff;
+}
+.footer .footer_box {
+  width: 1420px;
+  margin: 0 auto;
+  padding-top: 60px;
+}
+.footer .footer_box .top_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer_box .top_footer .cs_center p:nth-child(1) {
+  font-size: 20px;
+  font-weight: bold;
+}
+.footer .footer_box .top_footer .cs_center p:nth-child(2) {
+  font-size: 30px;
+  font-weight: bold;
+  color: #fd8234;
+}
+.footer .footer_box .top_footer .cs_center p:nth-child(3) {
+  font-size: 18px;
+  font-weight: 300;
+}
+.footer .footer_box .top_footer .insta_logo i {
+  color: #fff;
+  font-size: 40px;
+}
+.footer .footer_box .bottom_footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer_box .bottom_footer .left_logo {
+  padding-top: 150px;
+}
+.footer .footer_box .bottom_footer .left_logo img {
+  width: 116px;
+  height: 135px;
+}
+.footer .footer_box .bottom_footer .left_logo p {
+  margin-top: 20px;
+}
+.footer .footer_box .bottom_footer .right_info > ul {
+  display: flex;
+  gap: 55px;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li {
+  font-weight: 700;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li ul {
+  margin-top: 15px;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li ul li {
+  padding: 5px 0;
+  font-weight: 300;
+}
+.footer .footer_box .bottom_footer .right_info > ul > li ul li a {
+  color: #fff;
+}
+.footer .footer_box .bottom_footer .right_info .right_txt {
+  padding-top: 40px;
+  font-size: 14px;
+}
+.footer .footer_box .bottom_footer .right_info .right_txt .info_up {
+  display: none;
+}
+.footer .footer_box .bottom_footer .right_info .right_txt i {
+  cursor: pointer;
+  padding-left: 5px;
+}
+.footer .footer_box .bottom_footer .right_info .text_box {
+  position: absolute;
+  font-size: 14px;
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #fd8234;
+  opacity: 0;
+}
+.footer .footer_box .bottom_footer .right_info .text_box a {
+  display: inline;
+  color: #fff;
+}
+.footer .footer_box .bottom_footer .right_info .text_box.ani {
+  animation: slideDown 0.35s ease-out;
+  opacity: 1;
+}
+
+/* -------------top_btn--------------- */
+.buttons {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  cursor: pointer;
+  text-align: center;
+  z-index: 50;
+}
+.buttons > div {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #222;
+  padding: 5px;
+  color: #efe8da;
+  font-size: 25px;
+}
+.buttons > div.history_btn {
+  margin-bottom: 10px;
+}
+.buttons > div:hover {
+  background-color: #fd8234;
+  transition: all 0.3s;
+}/*# sourceMappingURL=sub.css.map */

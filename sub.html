@@ -18,6 +18,13 @@
         <!-- fontawesome -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" />
 
+        <!-- axios -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <!-- lodash -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
+
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
         <!-- user_js -->
         <script type="module" src="./js/sub.js" defer></script>
     </head>
@@ -92,7 +99,8 @@
         <div class="path">
             <ul>
                 <li><a href="./index.html">HOME</a></li>
-                <li><a href="./index.html">SHOP</a></li>
+                <li><a href="./sub.html">SHOP</a></li>
+                <li><a href="./sub.html">ALL</a></li>
             </ul>
         </div>
         <!-- path -->
@@ -202,7 +210,103 @@
 
         <div class="product">
             <h1>ALL</h1>
-            <div class="product_list"></div>
+            <ul class="product_list"></ul>
+            <div class="paging">
+                <i class="fas fa-angle-double-left" id="first_page"></i>
+                <i class="fas fa-angle-left" id="prev_page"></i>
+                <div class="pages">
+                  <span class="active">1</span>
+                  <span>2</span>
+                  <span>3</span>
+                  <span>4</span>
+                  <span>5</span>
+                </div>
+                <i class="fas fa-angle-right" id="next_page"></i>
+                <i class="fas fa-angle-double-right" id="last_page"></i>
+              </div>
+            </div>
         </div>
+
+        <footer class="footer">
+            <div class="footer_box">
+                <div class="top_footer">
+                    <div class="cs_center">
+                        <p>CS CENTER</p>
+                        <p>053-581-1079</p>
+                        <p>08:00 ~ 17:00 | 주말 및 공휴일 휴무</p>
+                    </div>
+                    <div class="insta_logo">
+                        <a href="https://www.instagram.com/ilkwanglighting/" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="bottom_footer">
+                    <div class="left_logo">
+                        <img src="./images/1962_white.png" alt="footer_logo" />
+                        <p>ⓒ 2023 Ilkwang Co., Ltd All rights reserved.</p>
+                    </div>
+
+                    <div class="right_info">
+                        <ul>
+                            <li>
+                                INFO
+                                <ul>
+                                    <li><a href="#!">공지사항</a></li>
+                                    <li><a href="#!">자주 묻는 질문</a></li>
+                                    <li><a href="#!">이용약관</a></li>
+                                    <li><a href="#!">개인정보취급방침</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                SUPPORT
+                                <ul>
+                                    <li><a href="#!">제품 가이드</a></li>
+                                    <li><a href="#!">뉴스</a></li>
+                                    <li><a href="#!">브로슈어</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                CONTACT
+                                <ul>
+                                    <li><a href="#!">문의하기</a></li>
+                                    <li><a href="#!">매장안내</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="right_txt">
+                            <span>(주)일광 사업자 정보</span>
+                            <span class="info_down">
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                            <span class="info_up">
+                                <i class="fas fa-chevron-up"></i>
+                            </span>
+                        </div>
+                        <div class="text_box">
+                            <p>
+                                일광로틱 | 대표 김홍도 | 사업자등록번호 510-05-40260 <a href="#!">[사업자정보확인]</a><br />
+                                통신판매신고번호 2013-경북성주-34호 <br />
+                                경상북도 성주군 선남면 문방1길 1 | 전화 053-581-1079 <br />
+                                팩스 053-581-6122 | 개인정보책임자 김홍도
+                            </p>
+                        </div>
+                    </div>
+                    <!-- right_info -->
+                </div>
+            </div>
+        </footer>
+        <!-- footer -->
+
+        <div class="buttons">
+            <div class="history_btn">
+                <i class="fas fa-history"></i>
+            </div>
+            <div class="top_btn">
+                <i class="fas fa-chevron-up"></i>
+            </div>
+        </div>
+        
     </body>
 </html>

@@ -227,7 +227,7 @@ $color: #fd8234;
                                 @include line(60px);
                                 display: flex;
                                 background-color: #fff;
-                                border-bottom: 1px solid #ccc;
+                                border-bottom: 1px solid #eee;
                                 padding-left: 184px;
                             }
                         }
@@ -802,8 +802,8 @@ $color: #fd8234;
     > div {
         @include size(45px, 45px);
         border-radius: 50%;
-        background-color: #261c13;
-        padding: 6px;
+        background-color: #222;
+        padding: 5px;
         color: #efe8da;
         font-size: 25px;
 
