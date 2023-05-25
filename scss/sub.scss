@@ -406,11 +406,25 @@ $color: #fd8234;
             margin-bottom: 30px;
 
             .products {
-                @include size(275px, 275px);
-                .pro_txt {
-                    height: 80px;
+                position: relative;
+                @include size(275px, auto);
+                overflow: hidden;
+
+                &:hover {
+                    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+                    transition: all 0.5s;
+                }
+
+                img {
+                    &:hover {
+                        transform: scale(1.2);
+                        transition: all 0.5s;
+                    }
+                }
+
+                .txt_box {
                     padding: 10px;
-                    background-color: rgba(255, 255, 255, 0.6);
+
                     p {
                         &:nth-child(1) {
                             font-size: 12px;
@@ -588,6 +602,114 @@ $color: #fd8234;
         &:hover {
             background-color: $color;
             transition: all 0.3s;
+        }
+    }
+
+    .history_btn {
+        position: relative;
+
+        .shop_history {
+            position: absolute;
+            top: -500px;
+            left: -500px;
+            @include size(480px, auto);
+            background-color: #fff;
+            box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+            display: none;
+
+            h6 {
+                color: #222;
+                padding: 20px;
+            }
+
+            .his_box {
+                > p {
+                    color: $color;
+                    font-size: 14px;
+                    text-align: left;
+                    padding: 10px 40px;
+                }
+
+                ul {
+                    li {
+                        position: relative;
+                        width: 400px;
+                        margin: 0 auto;
+                        overflow: hidden;
+
+                        a {
+                            margin: 20px 0;
+                            border: 1px solid #eee;
+                            display: flex;
+
+                            > .txt_box {
+                                position: relative;
+                                @include size(300px, 100px);
+                                overflow: hidden;
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-content: center;
+
+                                p {
+                                    &:nth-child(1) {
+                                        font: {
+                                            size: 12px;
+                                        }
+                                    }
+                                    &:nth-child(2) {
+                                        font: {
+                                            size: 13px;
+                                            weight: bold;
+                                        }
+                                    }
+                                }
+
+                                &:hover {
+                                    border: 1px solid $color;
+                                    transition: all 0.5s;
+                                }
+                            }
+
+                            img {
+                                width: 100px;
+                                float: left;
+                            }
+
+                            .delet_btn {
+                                position: absolute;
+                                right: 10px;
+                                top: 25px;
+                                @include size(20px, 20px);
+
+                                &.active-3 {
+                                    transform: rotate(180deg);
+                                    transition: all 0.5s;
+                                }
+
+                                span {
+                                    position: absolute;
+                                    display: inline-block;
+                                    left: 0;
+                                    width: 100%;
+
+                                    &:first-child {
+                                        @include size(20px, 2px);
+                                        background-color: #222;
+                                        top: 0;
+                                        transform: translateY(10px) rotate(-45deg);
+                                    }
+                                    &:last-child {
+                                        @include size(20px, 2px);
+                                        background-color: #222;
+                                        top: 10px;
+                                        transform: translateY(0) rotate(45deg);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

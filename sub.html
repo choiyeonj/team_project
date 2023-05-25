@@ -24,7 +24,9 @@
         <!-- lodash -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
 
+        <!-- jquery -->
         <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
         <!-- user_js -->
         <script type="module" src="./js/sub.js" defer></script>
     </head>
@@ -215,17 +217,17 @@
                 <i class="fas fa-angle-double-left" id="first_page"></i>
                 <i class="fas fa-angle-left" id="prev_page"></i>
                 <div class="pages">
-                  <span class="active">1</span>
-                  <span>2</span>
-                  <span>3</span>
-                  <span>4</span>
-                  <span>5</span>
+                    <span class="active">1</span>
+                    <span>2</span>
+                    <span>3</span>
+                    <span>4</span>
+                    <span>5</span>
                 </div>
                 <i class="fas fa-angle-right" id="next_page"></i>
                 <i class="fas fa-angle-double-right" id="last_page"></i>
-              </div>
             </div>
         </div>
+        <!-- product -->
 
         <footer class="footer">
             <div class="footer_box">
@@ -302,11 +304,42 @@
         <div class="buttons">
             <div class="history_btn">
                 <i class="fas fa-history"></i>
+                <div class="shop_history">
+                    <h6>SHOPPING HISTORY</h6>
+                    <div class="his_box">
+                        <p>TODAY</p>
+                        <ul>
+                            <li>
+                                <a href="./detail.html">
+                                    <img src="./images/best7.jpg" alt="best7" />
+                                    <div class="txt_box">
+                                        <p>IK 시리즈 ACORN22 Table Stand Deep Green</p>
+                                        <p>160,000원</p>
+                                    </div>
+                                    <div class="delet_btn">
+                                        <span></span>
+                                        <span></span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="./detail.html">
+                                    <img src="./images/best7.jpg" alt="best7" />
+                                    <div class="txt_box">
+                                        <p>IK 시리즈 ACORN22 Table Stand Deep Green</p>
+                                        <p>160,000원</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+
+                        <button type="button">전체 삭제</button>
+                    </div>
+                </div>
             </div>
             <div class="top_btn">
                 <i class="fas fa-chevron-up"></i>
             </div>
         </div>
-        
     </body>
 </html>

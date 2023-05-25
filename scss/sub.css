@@ -333,18 +333,26 @@ img {
   margin-bottom: 30px;
 }
 .product .product_list .best_box .products {
+  position: relative;
   width: 275px;
-  height: 275px;
+  height: auto;
+  overflow: hidden;
 }
-.product .product_list .best_box .products .pro_txt {
-  height: 80px;
+.product .product_list .best_box .products:hover {
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s;
+}
+.product .product_list .best_box .products img:hover {
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
+.product .product_list .best_box .products .txt_box {
   padding: 10px;
-  background-color: rgba(255, 255, 255, 0.6);
 }
-.product .product_list .best_box .products .pro_txt p:nth-child(1) {
+.product .product_list .best_box .products .txt_box p:nth-child(1) {
   font-size: 12px;
 }
-.product .product_list .best_box .products .pro_txt p:nth-child(2) {
+.product .product_list .best_box .products .txt_box p:nth-child(2) {
   font-size: 13px;
   font-weight: bold;
 }
@@ -485,4 +493,93 @@ img {
 .buttons > div:hover {
   background-color: #fd8234;
   transition: all 0.3s;
+}
+.buttons .history_btn {
+  position: relative;
+}
+.buttons .history_btn .shop_history {
+  position: absolute;
+  top: -500px;
+  left: -500px;
+  width: 480px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.buttons .history_btn .shop_history h6 {
+  color: #222;
+  padding: 20px;
+}
+.buttons .history_btn .shop_history .his_box > p {
+  color: #fd8234;
+  font-size: 14px;
+  text-align: left;
+  padding: 10px 40px;
+}
+.buttons .history_btn .shop_history .his_box ul li {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.buttons .history_btn .shop_history .his_box ul li a {
+  margin: 20px 0;
+  border: 1px solid #eee;
+  display: flex;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box p:nth-child(1) {
+  font-size: 12px;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box p:nth-child(2) {
+  font-size: 13px;
+  font-weight: bold;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box:hover {
+  border: 1px solid #fd8234;
+  transition: all 0.5s;
+}
+.buttons .history_btn .shop_history .his_box ul li a img {
+  width: 100px;
+  float: left;
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn {
+  position: absolute;
+  right: 10px;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn.active-3 {
+  transform: rotate(180deg);
+  transition: all 0.5s;
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn span {
+  position: absolute;
+  display: inline-block;
+  left: 0;
+  width: 100%;
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn span:first-child {
+  width: 20px;
+  height: 2px;
+  background-color: #222;
+  top: 0;
+  transform: translateY(10px) rotate(-45deg);
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn span:last-child {
+  width: 20px;
+  height: 2px;
+  background-color: #222;
+  top: 10px;
+  transform: translateY(0) rotate(45deg);
 }/*# sourceMappingURL=sub.css.map */

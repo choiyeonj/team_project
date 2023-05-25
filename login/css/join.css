@@ -48,6 +48,181 @@ input {
     color: #222;
 }
 
+/* -------------header--------------- */
+.header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: transparent;
+    z-index: 999;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+.header .header_inner {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+}
+.header .header_inner ul li:hover > a {
+    color: #fd8234;
+    transition: all 0.3s;
+}
+.header .header_inner .header_left {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.header .header_inner .header_left .logo {
+    width: 52px;
+    margin-right: 35px;
+}
+.header .header_inner .header_left .lnb > ul {
+    display: flex;
+    align-items: center;
+    height: 80px;
+}
+.header .header_inner .header_left .lnb > ul > li {
+    height: 100%;
+    line-height: 80px;
+}
+.header .header_inner .header_left .lnb > ul .menu:hover .aside {
+    left: 0;
+    transition: all 0.3s;
+}
+.header .header_inner .header_left .lnb > ul .menu .aside {
+    position: fixed;
+    top: 80px;
+    left: -435px;
+    background-color: #fff;
+    height: calc(100vh - 80px);
+    color: #261c13;
+    font-family: 'Noto Sans KR', sans-serif;
+    z-index: 1000;
+    font-size: 14px;
+    font-weight: 300;
+}
+.header .header_inner .header_left .lnb > ul .menu .aside li:hover {
+    background-color: #efe8da;
+    transition: all 0.3s;
+}
+.header .header_inner .header_left .lnb > ul .menu .aside .top_lnb {
+    height: 60px;
+    line-height: 60px;
+}
+.header .header_inner .header_left .lnb > ul .menu .aside .top_lnb ul {
+    display: flex;
+    align-items: center;
+}
+.header .header_inner .header_left .lnb > ul .menu .aside .top_lnb ul li {
+    width: 50%;
+    padding: 0 20px;
+    border-bottom: 1px solid #eee;
+    margin-right: 0;
+}
+.header .header_inner .header_left .lnb > ul .menu .aside .bottom_lnb li {
+    height: 60px;
+    width: 435px;
+    padding: 0 20px;
+    line-height: 60px;
+    margin-right: 0;
+    border-bottom: 1px solid #eee;
+}
+.header .header_inner .header_left .lnb > ul .brand_story {
+    position: relative;
+}
+.header .header_inner .header_left .lnb > ul .brand_story:hover .story_box {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s;
+}
+.header .header_inner .header_left .lnb > ul .brand_story .story_box {
+    visibility: hidden;
+    opacity: 0;
+}
+.header .header_inner .header_left .lnb > ul .brand_story .story_box ul {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    display: flex;
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    padding-left: 184px;
+}
+.header .header_inner .header_left .lnb > ul li {
+    margin-right: 35px;
+}
+.header .header_inner .header_left .lnb > ul li:last-child {
+    margin-right: 0;
+}
+.header .header_inner .header_right {
+    display: flex;
+    align-items: center;
+}
+.header .header_inner .header_right ul {
+    display: flex;
+    align-items: center;
+}
+.header .header_inner .header_right ul li {
+    margin-right: 35px;
+}
+.header .header_inner .header_right ul li:last-child {
+    margin-right: 0;
+}
+.header .header_inner .header_right ul li.search_icon {
+    position: relative;
+    width: 160px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: #fd8234;
+}
+.header .header_inner .header_right ul li.search_icon input {
+    background-color: #fd8234;
+    border: none;
+    outline: none;
+    width: 130px;
+    height: 25px;
+    border-radius: 20px;
+    padding-left: 15px;
+}
+.header .header_inner .header_right ul li.search_icon button {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+    background-color: #fd8234;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+    color: #fff;
+}
+.header.is-sticky {
+    position: fixed;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.35s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
 /* -------------join--------------- */
 .join_box {
     width: 600px;
