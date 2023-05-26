@@ -320,7 +320,7 @@ img {
   margin: 0 auto;
 }
 .product h1 {
-  padding: 30px 0;
+  padding: 60px 0 30px;
 }
 .product .product_list {
   display: flex;
@@ -328,13 +328,13 @@ img {
   flex-wrap: wrap;
 }
 .product .product_list .best_box {
-  width: 275px;
-  height: 355px;
-  margin-bottom: 30px;
+  width: 300px;
+  height: 300px;
+  margin-bottom: 40px;
 }
 .product .product_list .best_box .products {
   position: relative;
-  width: 275px;
+  width: 300px;
   height: auto;
   overflow: hidden;
 }

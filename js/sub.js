@@ -24,7 +24,12 @@ for (let i = 0; i < shoppingList.length; i++) {
 
     const bestPrice = document.createElement('p');
     const bestPriceTxt = document.createTextNode(shoppingList[i].price);
+    bestPrice.setAttribute('class', 'price');
     bestPrice.appendChild(bestPriceTxt);
+
+    const price = shoppingList[i].price;
+    console.log(price.toLocaleString('ko-KO', {style: 'currency', currency: 'KRW'}));
+    console.log(price);
 
     boxA.appendChild(bestImg);
     boxA.appendChild(txtBox);

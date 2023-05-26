@@ -393,7 +393,7 @@ $color: #fd8234;
     margin: 0 auto;
 
     h1 {
-        padding: 30px 0;
+        padding: 60px 0 30px;
     }
 
     .product_list {
@@ -402,12 +402,12 @@ $color: #fd8234;
         flex-wrap: wrap;
 
         .best_box {
-            @include size(275px, 355px);
-            margin-bottom: 30px;
+            @include size(300px, 300px);
+            margin-bottom: 40px;
 
             .products {
                 position: relative;
-                @include size(275px, auto);
+                @include size(300px, auto);
                 overflow: hidden;
 
                 &:hover {
