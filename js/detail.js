@@ -30,10 +30,7 @@ let detailSwiper = new Swiper('.detail_swiper', {
     fadeEffect: {
         crossFade: true,
     },
-    // autoplay: {
-    //     delay: 3000,
-    //     disableOnInteraction: false,
-    // },
+
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -126,29 +123,13 @@ class StickyNavigation {
 new StickyNavigation();
 
 /* -------------color_button--------------- */
-const butterBtn = document.querySelector('.color_option .butter');
-const whiteBtn = document.querySelector('.color_option .white');
-const greenBtn = document.querySelector('.color_option .green');
 const colorImg = document.getElementById('color_img');
-
-// butterBtn.onclick = function () {
-//     colorImg.src = './images/detail1.jpg';
-// };
-// whiteBtn.onclick = function () {
-//     colorImg.src = './images/detail2.jpg';
-// };
-// greenBtn.onclick = function () {
-//     colorImg.src = './images/detail3.jpg';
-// };
-
 const colorBtn = document.querySelectorAll('.color_option li');
 const colorTxt = document.querySelectorAll('.color_option .span_box .color_txt');
-const colorNone = document.querySelectorAll('.color_option .span_box .color_none');
 
 for (let i = 0; i < colorBtn.length; i++) {
     colorBtn[i].onclick = function () {
         colorImg.src = './images/detail' + (i + 1) + '.jpg';
-        colorTxt[i].style.display = 'inline-block';
     };
 
     function handleClick(event) {
@@ -161,15 +142,85 @@ for (let i = 0; i < colorBtn.length; i++) {
     colorBtn.forEach((e) => {
         e.addEventListener('click', handleClick);
     });
-
-    // function txtClick(event) {
-    //     colorTxt.forEach((e) => {
-    //         e.classList.remove('click');
-    //     });
-    //     event.target.classList.add('click');
-    // }
-
-    // colorTxt.forEach((e) => {
-    //     e.addEventListener('click', txtClick);
-    // });
 }
+
+Number.prototype.formatNumber = function () {
+    if (this == 0) return 0;
+
+    let regex = /(^[+-]?\d+)(\d)/;
+
+    let nstr = this + '';
+
+    while (regex.test(nstr)) nstr = nstr.replace(regex, '$1' + ',' + '$2');
+
+    return nstr;
+};
+
+String.prototype.format = function () {
+    let num = parseFloat(this);
+    if (isNaN(num)) return '0';
+
+    return num.format();
+};
+
+let basicAmount = parseInt('230000');
+
+const changeQty = document.querySelector('.qty');
+const minus = document.getElementById('minus');
+const plus = document.getElementById('plus');
+let totalPrice = document.getElementById('total_amount');
+
+changeQty.addEventListener('click', totalQty);
+
+function totalQty(e) {
+    let min_qty = 1;
+    let this_qty = $('#ct_qty').val() * 1;
+    let max_qty = '200'; // 현재 재고
+    if (e == 'm') {
+        this_qty -= 1;
+        if (this_qty < min_qty) {
+            //alert("최소구매수량 이상만 구매할 수 있습니다.");
+            alert('수량은 1개 이상 입력해 주십시오.');
+            return;
+        }
+    } else if (e == 'p') {
+        this_qty += 1;
+        if (this_qty > max_qty) {
+            alert('죄송합니다. 재고가 부족합니다.');
+            return;
+        }
+    }
+
+    let show_total_amount = basicAmount * this_qty;
+    //$("#ct_qty_txt").text(this_qty);
+    $('#ct_qty').val(this_qty);
+    $('#it_pay').val(show_total_amount);
+    $('#total_amount').html(show_total_amount.format());
+}
+
+// function change_qty2(t) {
+//     //var min_qty = '수량버튼'*1;
+//     let min_qty = 1;
+//     let this_qty = $('#ct_qty').val() * 1;
+//     let max_qty = '200'; // 현재 재고
+//     if (t == 'm') {
+//         this_qty -= 1;
+//         if (this_qty < min_qty) {
+//             //alert("최소구매수량 이상만 구매할 수 있습니다.");
+//             alert('수량은 1개 이상 입력해 주십시오.');
+//             return;
+//         }
+//     } else if (t == 'p') {
+//         this_qty += 1;
+//         if (this_qty > max_qty) {
+//             alert('죄송합니다. 재고가 부족합니다.');
+//             return;
+//         }
+//     }
+
+//     let show_total_amount = basicAmount * this_qty;
+//     //$("#ct_qty_txt").text(this_qty);
+//     $('#ct_qty').val(this_qty);
+//     $('#it_pay').val(show_total_amount);
+//     $('#total_amount').html(show_total_amount.format());
+// }

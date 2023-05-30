@@ -494,22 +494,113 @@ $color: #fd8234;
 
                     span {
                         display: inline-block;
+                    }
+                }
+            }
+        }
+        .another_product {
+            height: 255px;
+            padding: 30px 0 20px 50px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            overflow: hidden;
 
-                        &.color_txt {
-                            display: none;
+            > p {
+                padding-bottom: 20px;
+            }
 
-                            &.non-click {
-                                display: none;
-                            }
+            a {
+                overflow: hidden;
+                img {
+                    @include size(150px, 150px);
+                    border: 1px solid #eee;
+                    float: left;
+                }
 
-                            &.click {
-                                display: block;
-                            }
+                &:hover {
+                    img {
+                        border: 1px solid #222;
+                        transition: all 0.3s;
+                    }
+                }
+
+                .switch_txt {
+                    float: left;
+                    padding: 100px 20px 0;
+
+                    > p {
+                        font: {
+                            size: 18px;
+                            weight: bold;
                         }
                     }
                 }
             }
         }
+        .delivery_notice {
+            height: 100px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 20px 0 20px 50px;
+            font-size: 13px;
+
+            p {
+                margin-right: 20px;
+                font-weight: 500;
+            }
+
+            .deli_fee {
+                display: flex;
+            }
+            .card_benefit {
+                display: flex;
+                margin-top: 10px;
+
+                > span {
+                    display: inline-block;
+                    @include size(20px, 20px);
+                    @include line(18px);
+                    background-color: #eee;
+                    border-radius: 50%;
+                    border: 1px solid #ccc;
+                    cursor: pointer;
+                }
+            }
+        }
+        .total_price {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 85px;
+            border-right: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+
+            .qty {
+                display: flex;
+                input {
+                    @include size(36px, 36px);
+                    border: 1px solid #eee;
+                    outline: none;
+                    text-align: center;
+                }
+
+                .pm {
+                    @include size(36px, 36px);
+                    @include line(36px);
+                    border: 1px solid #eee;
+                    outline: none;
+                    font-size: 16px;
+                    cursor: pointer;
+                }
+                .plus {
+                    border-left: none;
+                }
+                .minus {
+                    border-right: none;
+                }
+            }
+        }
     }
 }
+/* -------------header--------------- */
 /* -------------header--------------- */

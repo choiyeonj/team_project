@@ -401,38 +401,38 @@ $color: #fd8234;
         justify-content: space-between;
         flex-wrap: wrap;
 
-        .best_box {
-            @include size(300px, 300px);
+        .main_box {
+            position: relative;
+            @include size(300px, auto);
             margin-bottom: 40px;
+            overflow: hidden;
 
-            .products {
-                position: relative;
-                @include size(300px, auto);
-                overflow: hidden;
+            &:hover {
+                box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+                transition: all 0.5s;
+            }
 
+            img {
                 &:hover {
-                    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+                    transform: scale(1.2);
                     transition: all 0.5s;
                 }
+            }
 
-                img {
-                    &:hover {
-                        transform: scale(1.2);
-                        transition: all 0.5s;
+            .pro_txt_box {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.4);
+
+                p {
+                    &:nth-child(1) {
+                        font-size: 12px;
                     }
-                }
-
-                .txt_box {
-                    padding: 10px;
-
-                    p {
-                        &:nth-child(1) {
-                            font-size: 12px;
-                        }
-                        &:nth-child(2) {
-                            font-size: 13px;
-                            font-weight: bold;
-                        }
+                    &:nth-child(2) {
+                        font-size: 13px;
+                        font-weight: bold;
                     }
                 }
             }
@@ -443,19 +443,12 @@ $color: #fd8234;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        margin-bottom: 20px;
+        margin: 20px 0 40px;
 
-        i {
-            padding: 0 2px;
-        }
-        .pages {
+        > div {
             padding: 0 5px;
-            span {
-                padding: 0 5px;
-
-                &.active {
-                    color: $color;
-                }
+            &.active {
+                color: $color;
             }
         }
     }

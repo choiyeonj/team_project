@@ -2,44 +2,6 @@ import shoppingList from '../js/data.js';
 
 const bestProduct = document.querySelector('.product_list');
 
-for (let i = 0; i < shoppingList.length; i++) {
-    const bestDiv = document.createElement('li');
-    bestDiv.setAttribute('class', 'best_box');
-
-    const boxA = document.createElement('a');
-    boxA.setAttribute('class', 'products');
-    boxA.setAttribute('href', './detail.html');
-
-    const bestImg = document.createElement('img');
-    const bestImgTxt = document.createTextNode(shoppingList[i].id);
-    bestImg.setAttribute('src', shoppingList[i].src);
-    bestImg.appendChild(bestImgTxt);
-
-    const txtBox = document.createElement('div');
-    txtBox.setAttribute('class', 'txt_box');
-
-    const bestName = document.createElement('P');
-    const bestNameTxt = document.createTextNode(shoppingList[i].name);
-    bestName.appendChild(bestNameTxt);
-
-    const bestPrice = document.createElement('p');
-    const bestPriceTxt = document.createTextNode(shoppingList[i].price);
-    bestPrice.setAttribute('class', 'price');
-    bestPrice.appendChild(bestPriceTxt);
-
-    const price = shoppingList[i].price;
-    console.log(price.toLocaleString('ko-KO', {style: 'currency', currency: 'KRW'}));
-    console.log(price);
-
-    boxA.appendChild(bestImg);
-    boxA.appendChild(txtBox);
-    txtBox.appendChild(bestName);
-    txtBox.appendChild(bestPrice);
-    bestDiv.appendChild(boxA);
-
-    bestProduct.appendChild(bestDiv);
-}
-
 /* -------------header_scroll--------------- */
 const header = document.querySelector('.header');
 const toggleClass = 'is-sticky';
@@ -67,108 +29,86 @@ headerInner.addEventListener('mouseout', function () {
 
 /* pagenation */
 
-const countPerPage = 5; // 페이지당 데이터 건수
-const showPageCnt = 3; // 화면에 보일 페이지 번호 개수
+let currentPage = 1;
+const itemsPerPage = 16; // 한 페이지에 표시할 항목의 수
 
-$(function () {
-    const todosUrl = './js/data.js';
-    axios.get(todosUrl).then((res) => {
-        console.log(res.data);
-        shoppingList.data;
+function createMainBoxes(bestProduct, page) {
+    const $mainContainer = $('.product_list');
+    $mainContainer.empty(); // 현재 페이지의 내용을 지웁니다.
 
-        // 별도의 서버에 페이지별로 요청하는 게 아니기 때문에
-        // 데이터를 한 번에 가져와서 페이지별로 화면에 출력합니다.
-        setTable(1);
-        setPaging(1);
-    });
-    // .catch((err) => console.error(err))
-    // .then(() => {
-    //     // finally
-    // });
+    const start = (page - 1) * itemsPerPage; // 시작 인덱스
+    const end = start + itemsPerPage; // 끝 인덱스
 
-    $(document).on('click', 'div.paging>div.pages>span', function () {
-        if (!$(this).hasClass('active')) {
-            $(this).parent().find('span.active').removeClass('active');
-            $(this).addClass('active');
+    // 시작과 끝 인덱스 사이의 데이터만 가져옵니다.
+    const pageItems = bestProduct.slice(start, end);
+    console.log(bestProduct);
 
-            setTable(Number($(this).text()));
+    for (let i = 0; i < pageItems.length; i++) {
+        const product = pageItems[i];
+        let $mainBox = $(`<a href="detail.html?id=${product.id}" class="main_box"></a>`);
+
+        if (product.best) {
+            $mainBox.append('<div class="best">BEST</div>');
         }
-    });
-
-    $(document).on('click', 'div.paging>i', function () {
-        const totalPage = Math.floor(shoppingList.length / countPerPage) + (shoppingList.length % countPerPage == 0 ? 0 : 1);
-        const id = $(this).attr('id');
-        console.log(id);
-
-        if (id == 'first_page') {
-            setTable(1);
-            setPaging(1);
-        } else if (id == 'prev_page') {
-            let arrPages = [];
-            $('div.paging>div.pages>span').each(function (idx, item) {
-                arrPages.push(Number($(this).text()));
-            });
-
-            const prevPage = _.min(arrPages) - showPageCnt;
-            setTable(prevPage);
-            setPaging(prevPage);
-        } else if (id == 'next_page') {
-            let arrPages = [];
-            $('div.paging>div.pages>span').each(function (idx, item) {
-                arrPages.push(Number($(this).text()));
-            });
-
-            const nextPage = _.max(arrPages) + 1;
-            setTable(nextPage);
-            setPaging(nextPage);
-        } else if (id == 'last_page') {
-            const lastPage = Math.floor((totalPage - 1) / showPageCnt) * showPageCnt + 1;
-            setTable(lastPage);
-            setPaging(lastPage);
+        if (product.deliver) {
+            $mainBox.append('<div class="deliver">당일배송</div>');
         }
-    });
+
+        $mainBox.append(`<img src="${product.src}" alt="">`);
+
+        let $textBox = $('<div class="pro_txt_box"></div>');
+        $textBox.append(`<p class="product_name">${product.name}</p>`);
+        $textBox.append(`<p class="product_price">${product.price}원</p>`);
+
+        $mainBox.append($textBox);
+
+        $mainContainer.append($mainBox);
+    }
+}
+
+// 가장 첫 페이지와 마지막 페이지 번호를 변수에 할당합니다.
+const firstPage = 1;
+const lastPage = Math.ceil(shoppingList.length / itemsPerPage);
+
+// 페이지 버튼 클릭 이벤트
+$('.paging > div').click(function () {
+    const $this = $(this);
+    const buttonText = $this.text();
+
+    $('.paging > div').removeClass('active');
+
+    switch (buttonText) {
+        case '<<':
+            currentPage = firstPage;
+            break;
+        case '<':
+            if (currentPage > firstPage) {
+                // 현재 페이지가 첫 페이지보다 크면
+                currentPage--;
+            }
+            break;
+        case '>':
+            if (currentPage < lastPage) {
+                // 현재 페이지가 마지막 페이지보다 작으면
+                currentPage++;
+            }
+            break;
+        case '>>':
+            currentPage = lastPage;
+            break;
+        default:
+            const pageNo = parseInt(buttonText, 10);
+            if (!isNaN(pageNo)) {
+                currentPage = pageNo;
+            }
+    }
+    $('.paging > div')
+        .eq(currentPage + 1)
+        .addClass('active');
+    createMainBoxes(shoppingList, currentPage);
 });
 
-function setTable(pageNum) {
-    // filtering data
-    const filteredData = _.slice(shoppingList, (pageNum - 1) * countPerPage, pageNum * countPerPage);
-    console.log(filteredData);
-}
-
-/**
- * 페이징 정보를 세팅합니다.
- * @param {int} pageNum - Page Number
- */
-function setPaging(pageNum) {
-    const currentPage = pageNum;
-    const totalPage = Math.floor(shoppingList.length / countPerPage) + (shoppingList.length % countPerPage == 0 ? 0 : 1);
-    console.log(currentPage, totalPage);
-
-    showAllIcon();
-
-    if (currentPage <= showPageCnt) {
-        $('#first_page').hide();
-        $('#prev_page').hide();
-    }
-    if (totalPage <= showPageCnt || Math.floor((currentPage - 1) / showPageCnt) * showPageCnt + showPageCnt + 1 > totalPage) {
-        $('#next_page').hide();
-        $('#last_page').hide();
-    }
-
-    let start = Math.floor((currentPage - 1) / showPageCnt) * showPageCnt + 1;
-    let sPagesHtml = '';
-    for (const end = start + showPageCnt; start < end && start <= totalPage; start++) {
-        sPagesHtml += '<span class="' + (start == currentPage ? 'active' : '') + '">' + start + '</span>';
-    }
-    $('div.paging>div.pages').html(sPagesHtml);
-}
-
-function showAllIcon() {
-    $('#first_page').show();
-    $('#prev_page').show();
-    $('#next_page').show();
-    $('#last_page').show();
-}
+createMainBoxes(shoppingList, currentPage);
 
 /* history_btn */
 // let delBtn = $('.delet_btn');
@@ -206,6 +146,26 @@ window.addEventListener('scroll', () => {
         });
     }
 }); // window_scroll_event
+
+/* txt_box */
+const upBtn = document.querySelector('.info_up');
+const downBtn = document.querySelector('.info_down');
+const txtBox = document.querySelector('.text_box');
+
+downBtn.addEventListener('click', slideDown);
+upBtn.addEventListener('click', slideUp);
+
+function slideDown() {
+    upBtn.style.display = 'inline-block';
+    downBtn.style.display = 'none';
+    txtBox.classList.add('ani');
+}
+
+function slideUp() {
+    upBtn.style.display = 'none';
+    downBtn.style.display = 'inline-block';
+    txtBox.classList.remove('ani');
+}
 
 topBtn.addEventListener('click', () => {
     gsap.to(window, 0.5, {

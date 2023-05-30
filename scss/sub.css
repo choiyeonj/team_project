@@ -327,32 +327,32 @@ img {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.product .product_list .best_box {
-  width: 300px;
-  height: 300px;
-  margin-bottom: 40px;
-}
-.product .product_list .best_box .products {
+.product .product_list .main_box {
   position: relative;
   width: 300px;
   height: auto;
+  margin-bottom: 40px;
   overflow: hidden;
 }
-.product .product_list .best_box .products:hover {
+.product .product_list .main_box:hover {
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
   transition: all 0.5s;
 }
-.product .product_list .best_box .products img:hover {
+.product .product_list .main_box img:hover {
   transform: scale(1.2);
   transition: all 0.5s;
 }
-.product .product_list .best_box .products .txt_box {
-  padding: 10px;
+.product .product_list .main_box .pro_txt_box {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.4);
 }
-.product .product_list .best_box .products .txt_box p:nth-child(1) {
+.product .product_list .main_box .pro_txt_box p:nth-child(1) {
   font-size: 12px;
 }
-.product .product_list .best_box .products .txt_box p:nth-child(2) {
+.product .product_list .main_box .pro_txt_box p:nth-child(2) {
   font-size: 13px;
   font-weight: bold;
 }
@@ -361,18 +361,12 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  margin-bottom: 20px;
+  margin: 20px 0 40px;
 }
-.product .paging i {
-  padding: 0 2px;
-}
-.product .paging .pages {
+.product .paging > div {
   padding: 0 5px;
 }
-.product .paging .pages span {
-  padding: 0 5px;
-}
-.product .paging .pages span.active {
+.product .paging > div.active {
   color: #fd8234;
 }
 

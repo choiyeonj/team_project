@@ -411,14 +411,100 @@ img {
 .content_wrap .right_content .content_info .color_option .span_box span {
   display: inline-block;
 }
-.content_wrap .right_content .content_info .color_option .span_box span.color_txt {
-  display: none;
+.content_wrap .right_content .another_product {
+  height: 255px;
+  padding: 30px 0 20px 50px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  overflow: hidden;
 }
-.content_wrap .right_content .content_info .color_option .span_box span.color_txt.non-click {
-  display: none;
+.content_wrap .right_content .another_product > p {
+  padding-bottom: 20px;
 }
-.content_wrap .right_content .content_info .color_option .span_box span.color_txt.click {
-  display: block;
+.content_wrap .right_content .another_product a {
+  overflow: hidden;
+}
+.content_wrap .right_content .another_product a img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #eee;
+  float: left;
+}
+.content_wrap .right_content .another_product a:hover img {
+  border: 1px solid #222;
+  transition: all 0.3s;
+}
+.content_wrap .right_content .another_product a .switch_txt {
+  float: left;
+  padding: 100px 20px 0;
+}
+.content_wrap .right_content .another_product a .switch_txt > p {
+  font-size: 18px;
+  font-weight: bold;
+}
+.content_wrap .right_content .delivery_notice {
+  height: 100px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0 20px 50px;
+  font-size: 13px;
+}
+.content_wrap .right_content .delivery_notice p {
+  margin-right: 20px;
+  font-weight: 500;
+}
+.content_wrap .right_content .delivery_notice .deli_fee {
+  display: flex;
+}
+.content_wrap .right_content .delivery_notice .card_benefit {
+  display: flex;
+  margin-top: 10px;
+}
+.content_wrap .right_content .delivery_notice .card_benefit > span {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  background-color: #eee;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+.content_wrap .right_content .total_price {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 85px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.content_wrap .right_content .total_price .qty {
+  display: flex;
+}
+.content_wrap .right_content .total_price .qty input {
+  width: 36px;
+  height: 36px;
+  border: 1px solid #eee;
+  outline: none;
+  text-align: center;
+}
+.content_wrap .right_content .total_price .qty .pm {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  border: 1px solid #eee;
+  outline: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.content_wrap .right_content .total_price .qty .plus {
+  border-left: none;
+}
+.content_wrap .right_content .total_price .qty .minus {
+  border-right: none;
 }
 
+/* -------------header--------------- */
 /* -------------header--------------- *//*# sourceMappingURL=detail.css.map */
