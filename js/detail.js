@@ -1,13 +1,13 @@
 /* -------------header_scroll--------------- */
-// const header = document.querySelector('.header');
-// const toggleClass = 'is-sticky';
+// const rightFixed = document.querySelector('.right_wrap');
+// const toggleClass = 'right_fixed';
 
 // window.addEventListener('scroll', () => {
 //     const currentScroll = window.pageYOffset;
-//     if (currentScroll > 150) {
-//         header.classList.add(toggleClass);
+//     if (currentScroll > 350) {
+//         rightFixed.classList.add(toggleClass);
 //     } else {
-//         header.classList.remove(toggleClass);
+//         rightFixed.classList.remove(toggleClass);
 //     }
 // });
 /* -------------aside_lnb--------------- */
@@ -65,7 +65,7 @@ class StickyNavigation {
     onTabClick(event, element) {
         event.preventDefault();
         let scrollTop = $(element.attr('href')).offset().top - this.tabContainerHeight + 1;
-        $('html, body').animate({scrollTop: scrollTop}, 600);
+        $('html, body').animate({scrollTop: scrollTop}, 500);
     }
 
     onScroll() {
@@ -125,11 +125,23 @@ new StickyNavigation();
 /* -------------color_button--------------- */
 const colorImg = document.getElementById('color_img');
 const colorBtn = document.querySelectorAll('.color_option li');
-const colorTxt = document.querySelectorAll('.color_option .span_box .color_txt');
+const colorTxt = document.querySelector('.color_option .color_box .color_txt');
 
 for (let i = 0; i < colorBtn.length; i++) {
     colorBtn[i].onclick = function () {
         colorImg.src = './images/detail' + (i + 1) + '.jpg';
+
+        switch (colorBtn[i]) {
+            case colorBtn[0]:
+                colorTxt.innerHTML = 'ALL BUTTER';
+                break;
+            case colorBtn[1]:
+                colorTxt.innerHTML = 'WHITE & ICE BLUE';
+                break;
+            case colorBtn[2]:
+                colorTxt.innerHTML = 'PEACH & DEEP GREEN';
+                break;
+        }
     };
 
     function handleClick(event) {
@@ -156,47 +168,47 @@ Number.prototype.formatNumber = function () {
     return nstr;
 };
 
-String.prototype.format = function () {
-    let num = parseFloat(this);
-    if (isNaN(num)) return '0';
+// String.prototype.format = function () {
+//     let num = parseFloat(this);
+//     if (isNaN(num)) return '0';
 
-    return num.format();
-};
+//     return num.format();
+// };
 
-let basicAmount = parseInt('230000');
+// let basicAmount = parseInt('230000');
 
-const changeQty = document.querySelector('.qty');
-const minus = document.getElementById('minus');
-const plus = document.getElementById('plus');
-let totalPrice = document.getElementById('total_amount');
+// const changeQty = document.querySelector('.qty');
+// const minus = document.getElementById('minus');
+// const plus = document.getElementById('plus');
+// let totalPrice = document.getElementById('total_amount');
 
-changeQty.addEventListener('click', totalQty);
+// changeQty.addEventListener('click', totalQty);
 
-function totalQty(e) {
-    let min_qty = 1;
-    let this_qty = $('#ct_qty').val() * 1;
-    let max_qty = '200'; // 현재 재고
-    if (e == 'm') {
-        this_qty -= 1;
-        if (this_qty < min_qty) {
-            //alert("최소구매수량 이상만 구매할 수 있습니다.");
-            alert('수량은 1개 이상 입력해 주십시오.');
-            return;
-        }
-    } else if (e == 'p') {
-        this_qty += 1;
-        if (this_qty > max_qty) {
-            alert('죄송합니다. 재고가 부족합니다.');
-            return;
-        }
-    }
+// function totalQty(e) {
+//     let min_qty = 1;
+//     let this_qty = $('#ct_qty').val() * 1;
+//     let max_qty = '200'; // 현재 재고
+//     if (e == 'm') {
+//         this_qty -= 1;
+//         if (this_qty < min_qty) {
+//             //alert("최소구매수량 이상만 구매할 수 있습니다.");
+//             alert('수량은 1개 이상 입력해 주십시오.');
+//             return;
+//         }
+//     } else if (e == 'p') {
+//         this_qty += 1;
+//         if (this_qty > max_qty) {
+//             alert('죄송합니다. 재고가 부족합니다.');
+//             return;
+//         }
+//     }
 
-    let show_total_amount = basicAmount * this_qty;
-    //$("#ct_qty_txt").text(this_qty);
-    $('#ct_qty').val(this_qty);
-    $('#it_pay').val(show_total_amount);
-    $('#total_amount').html(show_total_amount.format());
-}
+//     let show_total_amount = basicAmount * this_qty;
+//     //$("#ct_qty_txt").text(this_qty);
+//     $('#ct_qty').val(this_qty);
+//     $('#it_pay').val(show_total_amount);
+//     $('#total_amount').html(show_total_amount.format());
+// }
 
 // function change_qty2(t) {
 //     //var min_qty = '수량버튼'*1;
@@ -224,3 +236,46 @@ function totalQty(e) {
 //     $('#it_pay').val(show_total_amount);
 //     $('#total_amount').html(show_total_amount.format());
 // }
+
+/* -------------delivery_info--------------- */
+const accBox = document.getElementsByClassName('panel');
+let acc = document.getElementsByClassName('accordion');
+
+for (let i = 0; i < acc.length; i++) {
+    acc[i].addEventListener('click', function () {
+        slideUp();
+
+        this.classList.toggle('active');
+        let panel = this.nextElementSibling;
+        if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + 'px';
+        }
+    });
+}
+function slideUp() {
+    accBox.maxHeight = 0;
+}
+
+/* -------------top_btn--------------- */
+const topBtn = document.querySelector('.top_btn');
+const btn = document.getElementsByClassName('buttons');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        gsap.to(btn, 0.3, {
+            opacity: 1,
+        });
+    } else {
+        gsap.to(btn, 0.3, {
+            opacity: 0,
+        });
+    }
+}); // window_scroll_event
+
+topBtn.addEventListener('click', () => {
+    gsap.to(window, 0.5, {
+        scrollTo: 0,
+    });
+});
