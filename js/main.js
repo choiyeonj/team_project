@@ -12,7 +12,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* -------------aside_lnb--------------- */
-const headerInner = document.getElementById('top');
+const headerInner = document.getElementById('header');
 const asideLnb = document.getElementsByClassName('aside');
 
 headerInner.addEventListener('mouseover', function () {

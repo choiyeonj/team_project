@@ -30,73 +30,15 @@
 
         <!-- user_js -->
         <script type="module" src="./js/detail.js" defer></script>
+
+        <script>
+            $(function () {
+                $('#header').load('./header.html');
+            });
+        </script>
     </head>
     <body>
-        <header id="top" class="header">
-            <div class="header_inner">
-                <div class="header_left">
-                    <div class="logo">
-                        <a href="./index.html"><img src="./images/logo.png" alt="logo" /></a>
-                    </div>
-                    <nav class="lnb">
-                        <ul id="menu_list">
-                            <li class="menu">
-                                <a href="./sub.html">Shop</a>
-                                <div class="aside">
-                                    <div class="top_lnb">
-                                        <ul>
-                                            <li><a href="./sub.html">NEW</a></li>
-                                            <li><a href="./sub.html">ALL</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="bottom_lnb">
-                                        <ul>
-                                            <li><a href="./sub.html">IK 테이블 스탠드</a></li>
-                                            <li><a href="./sub.html">IK 플로어 스탠드</a></li>
-                                            <li><a href="./sub.html">IK 팬던트</a></li>
-                                            <li><a href="./sub.html">클래식전구</a></li>
-                                            <li><a href="./sub.html">장식용전구</a></li>
-                                            <li><a href="./sub.html">삼파장전구</a></li>
-                                            <li><a href="./sub.html">가드닝전구</a></li>
-                                            <li><a href="./sub.html">할로겐전구</a></li>
-                                            <li><a href="./sub.html">산업용전구</a></li>
-                                            <li><a href="./sub.html">크립톤전구</a></li>
-                                            <li><a href="./sub.html">LED전구</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="brand_story">
-                                <a href="./sub.html">Our story</a>
-                                <div class="story_box">
-                                    <ul>
-                                        <li><a href="./sub.html">Brand story</a></li>
-                                        <li><a href="./sub.html">History</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a href="./sub.html">Special Project</a></li>
-                            <li><a href="./sub.html">Support</a></li>
-                            <li><a href="./sub.html">Contact</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- header_left -->
-
-                <div class="header_right">
-                    <ul id="menu_right">
-                        <li class="search_icon">
-                            <input type="search" />
-                            <button><i class="fas fa-search"></i></button>
-                        </li>
-                        <li><a href="./login/login.html">Login</a></li>
-                        <li><a href="./login/login.html">My page</a></li>
-                        <li><a href="#!">Cart</a></li>
-                    </ul>
-                </div>
-                <!-- header_right -->
-            </div>
-        </header>
+        <header id="header" class="header"></header>
         <!-- header -->
 
         <section class="content_wrap">
@@ -145,6 +87,8 @@
                     </p>
                     <img src="./images/detail_info3.jpg" alt="detail_info3" />
                 </section>
+                <!-- info_tab -->
+
                 <section class="tab_slide notice" id="notice_tab">
                     <div class="notice_wrap">
                         <p>NOTICE</p>
@@ -178,8 +122,89 @@
                         </p>
                     </div>
                 </section>
-                <section class="tab_slide review" id="review_tab"></section>
+                <!-- notice_tab -->
+
+                <section class="tab_slide review" id="review_tab">
+                    <div id="comment-count">리뷰 <span id="count">0</span></div>
+                    <div class="swiper review_swiper">
+                        <ul class="swiper-wrapper">
+                            <li class="swiper-slide">
+                                <img src="./images/insta1.jpg" alt="detail1" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta2.jpg" alt="detail2" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta3.jpg" alt="detail3" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta4.jpg" alt="detail3" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta5.jpg" alt="detail3" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta6.jpg" alt="detail3" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta7.jpg" alt="detail3" />
+                            </li>
+                            <li class="swiper-slide">
+                                <img src="./images/insta8.jpg" alt="detail3" />
+                            </li>
+                        </ul>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <!-- review_swiper -->
+
+                    <div class="front_review">
+                        <div class="top_reviw">
+                            <div class="star_wrap">
+                                <ul>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                </ul>
+                                <div class="review_name">grace4843</div>
+                            </div>
+                            <p>2023.04.20</p>
+                        </div>
+                        <p>
+                            [옵션]
+                            <span class="option">WHITE & ICE BLUE</span>
+                        </p>
+                        <div class="bottom_review">
+                            <p>기대 안하고 구입했는데, 예산 보다 더 깜직하고 예쁘네요~ 개인적으로 매우 만족입니다! ^^</p>
+                        </div>
+                    </div>
+
+                    <div id="form-commentInfo" class="review_form">
+                        <input id="name-input" placeholder="성함을 입력해 주세요." />
+                        <select name="" id=""></select>
+                        <div class="rating" id="star">
+                            <input type="radio" name="rating" id="rating1" value="1" class="rate_radio" title="1점" />
+                            <label for="rating1">&#9733;</label>
+                            <input type="radio" name="rating" id="rating2" value="2" class="rate_radio" title="2점" />
+                            <label for="rating2">&#9733;</label>
+                            <input type="radio" name="rating" id="rating3" value="3" class="rate_radio" title="3점" />
+                            <label for="rating3">&#9733;</label>
+                            <input type="radio" name="rating" id="rating4" value="4" class="rate_radio" title="4점" />
+                            <label for="rating4">&#9733;</label>
+                            <input type="radio" name="rating" id="rating5" value="5" class="rate_radio" title="5점" />
+                            <label for="rating5">&#9733;</label>
+                        </div>
+                        <textarea rows="10" id="comment-input" class="review_textarea"></textarea>
+                        <button id="submit">등록</button>
+                    </div>
+                    <div id="comments"></div>
+                </section>
+                <!-- review_tab -->
+
                 <section class="tab_slide cs" id="cs_tab"></section>
+                <!-- cs_tab -->
             </div>
             <div class="right_content">
                 <div class="right_wrap">
@@ -197,6 +222,8 @@
                             </p>
                         </ul>
                     </div>
+                    <!-- content_info -->
+
                     <div class="another_product">
                         <p>추가 구성상품</p>
                         <a href="#!">
@@ -207,6 +234,8 @@
                             </div>
                         </a>
                     </div>
+                    <!-- another_product -->
+
                     <div class="delivery_notice">
                         <div class="deli_fee">
                             <p>배송비</p>
@@ -220,6 +249,8 @@
                             <span>?</span>
                         </div>
                     </div>
+                    <!-- delivery_notice -->
+
                     <div class="total_price">
                         <p>
                             총 상품 금액
@@ -235,10 +266,14 @@
                             <span class="count">(1개)</span>
                         </p>
                     </div>
+                    <!-- total_price -->
+
                     <div class="add_btn">
                         <div class="purchase_btn">구매하기</div>
                         <div class="cart_btn">장바구니</div>
                     </div>
+                    <!-- add_btn -->
+
                     <div class="acc_menu">
                         <div class="pro_inquiry accordion">제품 문의 및 교환/반품 안내</div>
                         <div class="panel">
@@ -278,6 +313,7 @@
                             </p>
                         </div>
                     </div>
+                    <!-- acc_menu -->
                 </div>
             </div>
         </section>

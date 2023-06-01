@@ -11,7 +11,7 @@
 //     }
 // });
 /* -------------aside_lnb--------------- */
-const headerInner = document.getElementById('top');
+const headerInner = document.getElementById('header');
 
 headerInner.addEventListener('mouseover', function () {
     header.style.backgroundColor = '#fff';
@@ -260,15 +260,15 @@ function slideUp() {
 
 /* -------------top_btn--------------- */
 const topBtn = document.querySelector('.top_btn');
-const btn = document.getElementsByClassName('buttons');
+const btns = document.getElementsByClassName('buttons');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-        gsap.to(btn, 0.3, {
+        gsap.to(btns, 0.3, {
             opacity: 1,
         });
     } else {
-        gsap.to(btn, 0.3, {
+        gsap.to(btns, 0.3, {
             opacity: 0,
         });
     }
@@ -279,3 +279,101 @@ topBtn.addEventListener('click', () => {
         scrollTo: 0,
     });
 });
+
+/* -------------review--------------- */
+let reviewSwiper = new Swiper('.review_swiper', {
+    slidesPerView: 5.5,
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+});
+const inputBar = document.getElementById('comment-input');
+const inputName = document.getElementById('name-input');
+const rootDiv = document.getElementById('comments');
+const btn = document.getElementById('submit');
+const ratingStar = document.getElementById('star');
+const mainCommentCount = document.getElementById('count'); //맨위 댓글 숫자 세는거.
+
+//타임스템프 만들기
+function generateTime() {
+    const date = new Date();
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const wDate = date.getDate();
+    const hour = date.getHours();
+    const min = date.getMinutes();
+    const sec = date.getSeconds();
+
+    const time = year + '-' + month + '-' + wDate + ' ' + hour + ':' + min + ':' + sec;
+    return time;
+}
+
+function deleteComments(event) {
+    const btn = event.target;
+    const list = btn.parentNode.parentNode; //commentList
+    rootDiv.removeChild(list);
+    //메인댓글 카운트 줄이기.
+    if (mainCommentCount.innerHTML <= '0') {
+        mainCommentCount.innerHTML = 0;
+    } else {
+        mainCommentCount.innerHTML--;
+    }
+}
+
+//댓글보여주기
+function showComment(comment) {
+    const userName = document.createElement('div');
+    const inputValue = document.createElement('span');
+    const showTime = document.createElement('div');
+    const countSpan = document.createElement('span');
+    const commentList = document.createElement('div');
+    //삭제버튼 만들기
+    const delBtn = document.createElement('button');
+    delBtn.className = 'deleteComment';
+    delBtn.innerHTML = '삭제';
+    commentList.className = 'eachComment';
+    userName.className = 'name';
+    inputValue.className = 'inputValue';
+    showTime.className = 'time';
+    //유저네임가져오기
+    userName.innerHTML = inputName.value;
+    userName.appendChild(delBtn);
+    //입력값 넘기기
+    inputValue.innerText = comment;
+    //타임스템프찍기
+    showTime.innerHTML = generateTime();
+    countSpan.innerHTML = 0;
+
+    //댓글뿌려주기
+    commentList.appendChild(userName);
+    commentList.appendChild(inputValue);
+    commentList.appendChild(showTime);
+    commentList.appendChild(ratingStar);
+    rootDiv.prepend(commentList);
+
+    delBtn.addEventListener('click', deleteComments);
+    console.dir(rootDiv);
+}
+
+//버튼만들기+입력값 전달
+function pressBtn() {
+    const currentVal = inputBar.value;
+    const nameVal = inputName.value;
+
+    if (!nameVal.length) {
+        alert('상품명을 입력해주세요.');
+    } else {
+        showComment(currentVal);
+        mainCommentCount.innerHTML++;
+        inputBar.value = '';
+        inputName.value = '';
+    }
+}
+
+btn.onclick = pressBtn;

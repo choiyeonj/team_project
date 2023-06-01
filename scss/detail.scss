@@ -432,6 +432,134 @@ $color: #fd8234;
                     }
                 }
             }
+
+            &.review {
+                padding: 30px;
+                background-color: #fff;
+                border: 1px solid #eee;
+
+                .front_review {
+                    @include size(100%, 150px);
+                    background-color: #efe8da;
+                    padding: 10px;
+
+                    .top_reviw {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .star_wrap {
+                            display: flex;
+
+                            > ul {
+                                display: flex;
+                            }
+                            .review_name {
+                                font-size: 13px;
+                                color: #999;
+                            }
+                        }
+                        > p {
+                            font-size: 13px;
+                            color: #999;
+                        }
+                    }
+                }
+
+                #comment-count {
+                    font-size: 30px;
+                    margin-bottom: 15px;
+                    border-bottom: 3px solid #222;
+                }
+
+                .review_swiper {
+                    padding: 20px 0;
+                    ul {
+                        li {
+                            img {
+                                width: 120px;
+                            }
+                        }
+                    }
+                }
+                .review_form {
+                    .rating {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        font-size: 20px;
+                        justify-content: flex-end;
+                        text-align: center;
+
+                        input {
+                            display: none;
+                        }
+
+                        label {
+                            color: #ccc;
+                            cursor: pointer;
+                        }
+                    }
+                    .rating label:hover,
+                    .rating label:hover ~ label {
+                        color: #fc0;
+                    }
+                    .rating :checked ~ label {
+                        color: #f90;
+                    }
+                }
+                #form-commentInfo {
+                    width: 100%;
+
+                    #comment-input {
+                        @include size(60%, 100px);
+                        border: none;
+                        outline: none;
+                        background-color: #eee;
+                    }
+
+                    #submit {
+                        @include size(50px, 50px);
+                        font-size: 15px;
+                        border: none;
+                        background-color: #efe8da;
+                    }
+                }
+                #comments {
+                    margin-top: 10px;
+
+                    .eachComment {
+                        width: 50%;
+                        margin: 10px;
+                        padding: 0.5em;
+                        border-bottom: 1px solid #c1bcba;
+
+                        .name {
+                            font-size: 14px;
+                            font-weight: bold;
+                            margin-bottom: 0.3em;
+                            display: flex;
+                            justify-content: space-between;
+                        }
+
+                        .inputValue {
+                            font-size: 1.2em;
+                            font-style: italic;
+                        }
+
+                        .time {
+                            font-size: 0.7em;
+                            color: #c1bcba;
+                            font-style: oblique;
+                            margin-top: 0.5em;
+                            margin-bottom: 0.5em;
+                        }
+
+                        .deleteComment {
+                            background-color: red;
+                            color: aliceblue;
+                        }
+                    }
+                }
+            }
         }
     }
     .right_content {
@@ -440,7 +568,7 @@ $color: #fd8234;
         right: 0;
         overflow-y: auto;
         overflow-x: hidden;
-        width: 44%;
+        width: 44.2%;
         z-index: 5;
 
         height: calc(100vh - 80px);

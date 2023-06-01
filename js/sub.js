@@ -1,7 +1,5 @@
 import shoppingList from '../js/data.js';
 
-const bestProduct = document.querySelector('.product_list');
-
 /* -------------header_scroll--------------- */
 const header = document.querySelector('.header');
 const toggleClass = 'is-sticky';
@@ -15,7 +13,7 @@ window.addEventListener('scroll', () => {
     }
 });
 /* -------------aside_lnb--------------- */
-const headerInner = document.getElementById('top');
+const headerInner = document.getElementById('header');
 
 headerInner.addEventListener('mouseover', function () {
     header.style.backgroundColor = '#fff';
@@ -49,9 +47,6 @@ function createMainBoxes(bestProduct, page) {
 
         if (product.best) {
             $mainBox.append('<div class="best">BEST</div>');
-        }
-        if (product.deliver) {
-            $mainBox.append('<div class="deliver">당일배송</div>');
         }
 
         $mainBox.append(`<img src="${product.src}" alt="">`);
