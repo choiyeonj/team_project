@@ -168,74 +168,73 @@ Number.prototype.formatNumber = function () {
     return nstr;
 };
 
-// String.prototype.format = function () {
-//     let num = parseFloat(this);
-//     if (isNaN(num)) return '0';
+String.prototype.format = function () {
+    let num = parseFloat(this);
+    if (isNaN(num)) return '0';
 
-//     return num.format();
-// };
+    return num.format();
+};
 
-// let basicAmount = parseInt('230000');
+let basicAmount = parseInt('230000');
 
-// const changeQty = document.querySelector('.qty');
-// const minus = document.getElementById('minus');
-// const plus = document.getElementById('plus');
-// let totalPrice = document.getElementById('total_amount');
+const minus = document.getElementById('minus');
+const plus = document.getElementById('plus');
+const count = document.getElementById('count_qty');
+let totalPrice = document.getElementById('total_amount');
+let pay = document.querySelector('.total_amount .it_pay');
+let totalCount = document.querySelector('.total_amount .count');
 
-// changeQty.addEventListener('click', totalQty);
+minus.addEventListener('click', numCount('minus'));
+plus.addEventListener('click', numCount('plus'));
 
-// function totalQty(e) {
-//     let min_qty = 1;
-//     let this_qty = $('#ct_qty').val() * 1;
-//     let max_qty = '200'; // 현재 재고
-//     if (e == 'm') {
-//         this_qty -= 1;
-//         if (this_qty < min_qty) {
-//             //alert("최소구매수량 이상만 구매할 수 있습니다.");
-//             alert('수량은 1개 이상 입력해 주십시오.');
-//             return;
-//         }
-//     } else if (e == 'p') {
-//         this_qty += 1;
-//         if (this_qty > max_qty) {
-//             alert('죄송합니다. 재고가 부족합니다.');
-//             return;
-//         }
+let min_qty = 1;
+let this_qty = count.value;
+let max_qty = '200'; // 현재 재고
+
+// function minusQty() {
+//     this_qty -= 1;
+//     totalCount -= 1;
+
+//     if (this_qty < min_qty) {
+//         alert('수량은 1개 이상 입력해 주십시오.');
+//         return;
 //     }
 
 //     let show_total_amount = basicAmount * this_qty;
-//     //$("#ct_qty_txt").text(this_qty);
-//     $('#ct_qty').val(this_qty);
-//     $('#it_pay').val(show_total_amount);
-//     $('#total_amount').html(show_total_amount.format());
+//     pay = show_total_amount;
+//     //totalPrice.html(show_total_amount.format());
 // }
 
-// function change_qty2(t) {
-//     //var min_qty = '수량버튼'*1;
-//     let min_qty = 1;
-//     let this_qty = $('#ct_qty').val() * 1;
-//     let max_qty = '200'; // 현재 재고
-//     if (t == 'm') {
-//         this_qty -= 1;
-//         if (this_qty < min_qty) {
-//             //alert("최소구매수량 이상만 구매할 수 있습니다.");
-//             alert('수량은 1개 이상 입력해 주십시오.');
-//             return;
-//         }
-//     } else if (t == 'p') {
-//         this_qty += 1;
-//         if (this_qty > max_qty) {
-//             alert('죄송합니다. 재고가 부족합니다.');
-//             return;
-//         }
+// function plusQty() {
+//     this_qty += 1;
+//     totalCount += 1;
+
+//     if (this_qty > max_qty) {
+//         alert('죄송합니다. 재고가 부족합니다.');
+//         return;
 //     }
 
 //     let show_total_amount = basicAmount * this_qty;
-//     //$("#ct_qty_txt").text(this_qty);
-//     $('#ct_qty').val(this_qty);
-//     $('#it_pay').val(show_total_amount);
-//     $('#total_amount').html(show_total_amount.format());
+//     pay = show_total_amount;
+//     //totalPrice.html(show_total_amount.format());
 // }
+function numCount(type) {
+    // 결과를 표시할 element
+    const resultElement = count.innerText;
+
+    // 현재 화면에 표시된 값
+    let number = resultElement.innerText;
+
+    // 더하기/빼기
+    if (type === 'plus') {
+        number = parseInt(number) + 1;
+    } else if (type === 'minus') {
+        number = parseInt(number) - 1;
+    }
+
+    // 결과 출력
+    resultElement == number;
+}
 
 /* -------------delivery_info--------------- */
 const accBox = document.getElementsByClassName('panel');
@@ -293,8 +292,10 @@ let reviewSwiper = new Swiper('.review_swiper', {
         prevEl: '.swiper-button-prev',
     },
 });
+
 const inputBar = document.getElementById('comment-input');
 const inputName = document.getElementById('name-input');
+const selectOption = document.getElementById('list_option');
 const rootDiv = document.getElementById('comments');
 const btn = document.getElementById('submit');
 const ratingStar = document.getElementById('star');
@@ -304,7 +305,7 @@ const mainCommentCount = document.getElementById('count'); //맨위 댓글 숫�
 function generateTime() {
     const date = new Date();
     const year = date.getFullYear();
-    const month = date.getMonth();
+    const month = date.getMonth() + 1;
     const wDate = date.getDate();
     const hour = date.getHours();
     const min = date.getMinutes();
@@ -316,7 +317,7 @@ function generateTime() {
 
 function deleteComments(event) {
     const btn = event.target;
-    const list = btn.parentNode.parentNode; //commentList
+    const list = btn.parentNode; //commentList
     rootDiv.removeChild(list);
     //메인댓글 카운트 줄이기.
     if (mainCommentCount.innerHTML <= '0') {
@@ -329,32 +330,52 @@ function deleteComments(event) {
 //댓글보여주기
 function showComment(comment) {
     const userName = document.createElement('div');
-    const inputValue = document.createElement('span');
+    const inputValue = document.createElement('p');
     const showTime = document.createElement('div');
     const countSpan = document.createElement('span');
     const commentList = document.createElement('div');
+    const starValue = document.createElement('div');
+    const selectValue = document.createElement('div');
+    const topReview = document.createElement('div');
+    const topWrap = document.createElement('div');
+
     //삭제버튼 만들기
     const delBtn = document.createElement('button');
     delBtn.className = 'deleteComment';
     delBtn.innerHTML = '삭제';
+
     commentList.className = 'eachComment';
+    topReview.className = 'top_review';
+    topWrap.className = 'star_wrap';
     userName.className = 'name';
+    starValue.className = 'rating_value';
+    selectValue.className = 'option';
     inputValue.className = 'inputValue';
     showTime.className = 'time';
+
     //유저네임가져오기
     userName.innerHTML = inputName.value;
-    userName.appendChild(delBtn);
+    starValue.innerHTML = ratingStar.value;
+    selectValue.innerHTML = selectOption.value;
+
     //입력값 넘기기
     inputValue.innerText = comment;
+
     //타임스템프찍기
     showTime.innerHTML = generateTime();
     countSpan.innerHTML = 0;
 
-    //댓글뿌려주기
-    commentList.appendChild(userName);
+    //리뷰 작성
+    topWrap.appendChild(starValue);
+    topWrap.appendChild(userName);
+    topReview.appendChild(topWrap);
+    topReview.appendChild(showTime);
+
+    commentList.appendChild(topReview);
+    commentList.appendChild(selectValue);
     commentList.appendChild(inputValue);
-    commentList.appendChild(showTime);
-    commentList.appendChild(ratingStar);
+    commentList.appendChild(delBtn);
+
     rootDiv.prepend(commentList);
 
     delBtn.addEventListener('click', deleteComments);
@@ -367,7 +388,7 @@ function pressBtn() {
     const nameVal = inputName.value;
 
     if (!nameVal.length) {
-        alert('상품명을 입력해주세요.');
+        alert('성함을 입력해주세요.');
     } else {
         showComment(currentVal);
         mainCommentCount.innerHTML++;

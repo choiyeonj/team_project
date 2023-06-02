@@ -238,7 +238,6 @@ img {
   color: #fff;
 }
 .header.is-sticky {
-  position: fixed;
   box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
@@ -365,38 +364,67 @@ img {
 }
 .content_wrap .left_content .tab_slide.review .front_review {
   width: 100%;
-  height: 150px;
+  height: auto;
   background-color: #efe8da;
   padding: 10px;
+  margin-bottom: 20px;
 }
-.content_wrap .left_content .tab_slide.review .front_review .top_reviw {
+.content_wrap .left_content .tab_slide.review .front_review .top_review {
   display: flex;
   justify-content: space-between;
 }
-.content_wrap .left_content .tab_slide.review .front_review .top_reviw .star_wrap {
+.content_wrap .left_content .tab_slide.review .front_review .top_review .star_wrap {
   display: flex;
 }
-.content_wrap .left_content .tab_slide.review .front_review .top_reviw .star_wrap > ul {
+.content_wrap .left_content .tab_slide.review .front_review .top_review .star_wrap > ul {
   display: flex;
 }
-.content_wrap .left_content .tab_slide.review .front_review .top_reviw .star_wrap .review_name {
+.content_wrap .left_content .tab_slide.review .front_review .top_review .star_wrap .review_name {
+  font-size: 13px;
+  color: #999;
+  padding: 0 10px;
+}
+.content_wrap .left_content .tab_slide.review .front_review .top_review > p {
   font-size: 13px;
   color: #999;
 }
-.content_wrap .left_content .tab_slide.review .front_review .top_reviw > p {
-  font-size: 13px;
-  color: #999;
+.content_wrap .left_content .tab_slide.review .front_review .bottom_review {
+  padding: 10px 0;
+  overflow: hidden;
 }
-.content_wrap .left_content .tab_slide.review #comment-count {
-  font-size: 30px;
-  margin-bottom: 15px;
-  border-bottom: 3px solid #222;
+.content_wrap .left_content .tab_slide.review .front_review .bottom_review > p {
+  width: 600px;
+  float: left;
 }
-.content_wrap .left_content .tab_slide.review .review_swiper {
-  padding: 20px 0;
+.content_wrap .left_content .tab_slide.review .front_review .bottom_review > img {
+  width: 80px;
+  float: right;
 }
-.content_wrap .left_content .tab_slide.review .review_swiper ul li img {
-  width: 120px;
+.content_wrap .left_content .tab_slide.review .review_form input,
+.content_wrap .left_content .tab_slide.review .review_form select {
+  border: none;
+  outline: none;
+  background-color: #eee;
+  width: 200px;
+  height: 30px;
+  margin: 5px 0;
+}
+.content_wrap .left_content .tab_slide.review .review_form #comment-input {
+  width: 650px;
+  height: 150px;
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: #eee;
+}
+.content_wrap .left_content .tab_slide.review .review_form #submit {
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  background-color: #efe8da;
+  cursor: pointer;
+  float: right;
 }
 .content_wrap .left_content .tab_slide.review .review_form .rating {
   display: flex;
@@ -419,53 +447,63 @@ img {
 .content_wrap .left_content .tab_slide.review .review_form .rating :checked ~ label {
   color: #f90;
 }
-.content_wrap .left_content .tab_slide.review #form-commentInfo {
-  width: 100%;
-}
-.content_wrap .left_content .tab_slide.review #form-commentInfo #comment-input {
-  width: 60%;
-  height: 100px;
-  border: none;
-  outline: none;
-  background-color: #eee;
-}
-.content_wrap .left_content .tab_slide.review #form-commentInfo #submit {
-  width: 50px;
-  height: 50px;
-  font-size: 15px;
-  border: none;
-  background-color: #efe8da;
+.content_wrap .left_content .tab_slide.review #comment-count {
+  font-size: 30px;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #222;
 }
 .content_wrap .left_content .tab_slide.review #comments {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment {
-  width: 50%;
-  margin: 10px;
-  padding: 0.5em;
-  border-bottom: 1px solid #c1bcba;
+  width: 100%;
+  height: auto;
+  background-color: #efe8da;
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.content_wrap .left_content .tab_slide.review #comments .eachComment .top_review {
+  display: flex;
+  justify-content: space-between;
+}
+.content_wrap .left_content .tab_slide.review #comments .eachComment .top_review .star_wrap {
+  display: flex;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .name {
-  font-size: 14px;
-  font-weight: bold;
-  margin-bottom: 0.3em;
+  font-size: 13px;
+  color: #999;
+  padding: 0 10px;
   display: flex;
   justify-content: space-between;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .inputValue {
-  font-size: 1.2em;
-  font-style: italic;
+  width: 600px;
+  padding-top: 10px;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .time {
-  font-size: 0.7em;
-  color: #c1bcba;
-  font-style: oblique;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
+  font-size: 13px;
+  color: #999;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .deleteComment {
-  background-color: red;
-  color: aliceblue;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  color: #222;
+  cursor: pointer;
+  float: right;
+}
+.content_wrap .left_content .tab_slide.review .review_swiper {
+  padding: 20px 0;
+}
+.content_wrap .left_content .tab_slide.review .review_swiper ul li img {
+  width: 120px;
+  -webkit-filter: brightness(70%);
+}
+.content_wrap .left_content .tab_slide.review .review_swiper ul li img:hover {
+  -webkit-filter: brightness(110%);
 }
 .content_wrap .right_content {
   position: fixed;
@@ -664,6 +702,9 @@ img {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   font-size: 13px;
+}
+.content_wrap .right_content .right_wrap .acc_menu .panel:last-child {
+  margin-bottom: 50px;
 }
 .content_wrap .right_content .right_wrap .acc_menu .panel > p {
   height: 100%;

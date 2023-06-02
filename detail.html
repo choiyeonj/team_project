@@ -49,10 +49,10 @@
                             <img src="./images/detail1.jpg" id="color_img" alt="detail1" />
                         </li>
                         <li class="swiper-slide">
-                            <img src="./images/detail_main1.jpg" alt="detail2" />
+                            <img src="./images/detail_main1.jpg" alt="detail_main1" />
                         </li>
                         <li class="swiper-slide">
-                            <img src="./images/detail_main2.jpg" alt="detail3" />
+                            <img src="./images/detail_main2.jpg" alt="detail_main2" />
                         </li>
                     </ul>
                     <div class="swiper-button-next"></div>
@@ -125,7 +125,8 @@
                 <!-- notice_tab -->
 
                 <section class="tab_slide review" id="review_tab">
-                    <div id="comment-count">리뷰 <span id="count">0</span></div>
+                    <div id="comment-count">리뷰 <span id="count">3</span></div>
+
                     <div class="swiper review_swiper">
                         <ul class="swiper-wrapper">
                             <li class="swiper-slide">
@@ -159,7 +160,7 @@
                     <!-- review_swiper -->
 
                     <div class="front_review">
-                        <div class="top_reviw">
+                        <div class="top_review">
                             <div class="star_wrap">
                                 <ul>
                                     <li>&#9733;</li>
@@ -172,20 +173,67 @@
                             </div>
                             <p>2023.04.20</p>
                         </div>
-                        <p>
-                            [옵션]
-                            <span class="option">WHITE & ICE BLUE</span>
-                        </p>
+                        <p>[옵션] WHITE & ICE BLUE</p>
                         <div class="bottom_review">
                             <p>기대 안하고 구입했는데, 예산 보다 더 깜직하고 예쁘네요~ 개인적으로 매우 만족입니다! ^^</p>
                         </div>
                     </div>
+                    <!-- review1 -->
+                    <div class="front_review">
+                        <div class="top_review">
+                            <div class="star_wrap">
+                                <ul>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                </ul>
+                                <div class="review_name">342ange</div>
+                            </div>
+                            <p>2023.03.11</p>
+                        </div>
+                        <p>[옵션] PEACH & DEEP GREEN</p>
+                        <div class="bottom_review">
+                            <p>사이즈부터 색상까지 마음에 쏙 들어요 유리가 아니라 깨질위험없어서 안심되구요 이거 하나로 인테리어가 살아나네요</p>
+                            <img src="./images/issue_living1.png" alt="issue_living1" />
+                        </div>
+                    </div>
+                    <!-- review2 -->
+                    <div class="front_review">
+                        <div class="top_review">
+                            <div class="star_wrap">
+                                <ul>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                    <li>&#9733;</li>
+                                </ul>
+                                <div class="review_name">gogogo123</div>
+                            </div>
+                            <p>2023.02.08</p>
+                        </div>
+                        <p>[옵션] WHITE & ICE BLUE</p>
+                        <div class="bottom_review">
+                            <p>선물했는데 만족스러워했습니다</p>
+                        </div>
+                    </div>
+                    <!-- review3 -->
+
+                    <div id="comments"></div>
 
                     <div id="form-commentInfo" class="review_form">
                         <input id="name-input" placeholder="성함을 입력해 주세요." />
-                        <select name="" id=""></select>
+                        <div class="select">
+                            <select id="list_option">
+                                <option value="[옵션] ALL BUTTER">[옵션] ALL BUTTER</option>
+                                <option value="[옵션] WHITE & ICE BLUE">[옵션] WHITE & ICE BLUE</option>
+                                <option value="[옵션] PEACH & DEEP GREEN">[옵션] PEACH & DEEP GREEN</option>
+                            </select>
+                        </div>
                         <div class="rating" id="star">
-                            <input type="radio" name="rating" id="rating1" value="1" class="rate_radio" title="1점" />
+                            <input type="radio" name="rating" id="rating1" value="&#9733;" class="rate_radio" title="1점" />
                             <label for="rating1">&#9733;</label>
                             <input type="radio" name="rating" id="rating2" value="2" class="rate_radio" title="2점" />
                             <label for="rating2">&#9733;</label>
@@ -199,7 +247,7 @@
                         <textarea rows="10" id="comment-input" class="review_textarea"></textarea>
                         <button id="submit">등록</button>
                     </div>
-                    <div id="comments"></div>
+                    <!-- review_form -->
                 </section>
                 <!-- review_tab -->
 
@@ -252,18 +300,15 @@
                     <!-- delivery_notice -->
 
                     <div class="total_price">
-                        <p>
-                            총 상품 금액
-                            <span>(수량)</span>
-                        </p>
+                        <p>총 상품 금액 (수량)</p>
                         <div class="qty">
-                            <div id="minus" class="minus pm">-</div>
-                            <input type="text" name="ct_qty" id="ct_qty" value="1" readonly="readonly" />
-                            <div id="plus" class="plus pm">+</div>
+                            <button id="minus" class="minus pm">-</button>
+                            <input type="text" name="count_qty" id="count_qty" value="1" readonly="readonly" />
+                            <button id="plus" class="plus pm">+</button>
                         </div>
                         <p id="total_amount">
-                            230,000
-                            <span class="count">(1개)</span>
+                            <span class="it_pay">230,000</span>
+                            <span class="count">1</span>
                         </p>
                     </div>
                     <!-- total_price -->

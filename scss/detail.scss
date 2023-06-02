@@ -294,7 +294,7 @@ $color: #fd8234;
         }
     }
     &.is-sticky {
-        position: fixed;
+        //position: fixed;
         box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(10px);
         animation: slideDown 0.35s ease-out;
@@ -439,11 +439,12 @@ $color: #fd8234;
                 border: 1px solid #eee;
 
                 .front_review {
-                    @include size(100%, 150px);
+                    @include size(100%, auto);
                     background-color: #efe8da;
                     padding: 10px;
+                    margin-bottom: 20px;
 
-                    .top_reviw {
+                    .top_review {
                         display: flex;
                         justify-content: space-between;
 
@@ -456,6 +457,7 @@ $color: #fd8234;
                             .review_name {
                                 font-size: 13px;
                                 color: #999;
+                                padding: 0 10px;
                             }
                         }
                         > p {
@@ -463,25 +465,45 @@ $color: #fd8234;
                             color: #999;
                         }
                     }
-                }
+                    .bottom_review {
+                        padding: 10px 0;
+                        overflow: hidden;
 
-                #comment-count {
-                    font-size: 30px;
-                    margin-bottom: 15px;
-                    border-bottom: 3px solid #222;
-                }
-
-                .review_swiper {
-                    padding: 20px 0;
-                    ul {
-                        li {
-                            img {
-                                width: 120px;
-                            }
+                        > p {
+                            width: 600px;
+                            float: left;
+                        }
+                        > img {
+                            width: 80px;
+                            float: right;
                         }
                     }
                 }
                 .review_form {
+                    input,
+                    select {
+                        border: none;
+                        outline: none;
+                        background-color: #eee;
+                        @include size(200px, 30px);
+                        margin: 5px 0;
+                    }
+                    #comment-input {
+                        @include size(650px, 150px);
+                        border: none;
+                        outline: none;
+                        resize: none;
+                        background-color: #eee;
+                    }
+
+                    #submit {
+                        @include size(100px, 50px);
+                        font-size: 15px;
+                        border: none;
+                        background-color: #efe8da;
+                        cursor: pointer;
+                        float: right;
+                    }
                     .rating {
                         display: flex;
                         flex-direction: row-reverse;
@@ -506,56 +528,75 @@ $color: #fd8234;
                         color: #f90;
                     }
                 }
-                #form-commentInfo {
-                    width: 100%;
 
-                    #comment-input {
-                        @include size(60%, 100px);
-                        border: none;
-                        outline: none;
-                        background-color: #eee;
-                    }
-
-                    #submit {
-                        @include size(50px, 50px);
-                        font-size: 15px;
-                        border: none;
-                        background-color: #efe8da;
-                    }
+                #comment-count {
+                    font-size: 30px;
+                    margin-bottom: 15px;
+                    border-bottom: 3px solid #222;
                 }
                 #comments {
-                    margin-top: 10px;
+                    margin-top: 20px;
+                    margin-bottom: 10px;
+                    border-bottom: 1px solid #eee;
 
                     .eachComment {
-                        width: 50%;
-                        margin: 10px;
-                        padding: 0.5em;
-                        border-bottom: 1px solid #c1bcba;
+                        @include size(100%, auto);
+                        background-color: #efe8da;
+                        padding: 10px;
+                        margin-bottom: 20px;
+                        overflow: hidden;
+
+                        .top_review {
+                            display: flex;
+                            justify-content: space-between;
+
+                            .star_wrap {
+                                display: flex;
+                            }
+                        }
 
                         .name {
-                            font-size: 14px;
-                            font-weight: bold;
-                            margin-bottom: 0.3em;
+                            font-size: 13px;
+                            color: #999;
+                            padding: 0 10px;
                             display: flex;
                             justify-content: space-between;
                         }
 
                         .inputValue {
-                            font-size: 1.2em;
-                            font-style: italic;
+                            width: 600px;
+                            padding-top: 10px;
                         }
 
                         .time {
-                            font-size: 0.7em;
-                            color: #c1bcba;
-                            font-style: oblique;
-                            margin-top: 0.5em;
-                            margin-bottom: 0.5em;
+                            font-size: 13px;
+                            color: #999;
                         }
 
                         .deleteComment {
-                            background-color: red;
-                            color: aliceblue;
+                            margin-top: 20px;
+                            border: none;
+                            outline: none;
+                            color: #222;
+                            cursor: pointer;
+                            float: right;
+                        }
+                    }
+                }
+
+                .review_swiper {
+                    padding: 20px 0;
+                    ul {
+                        li {
+                            img {
+                                width: 120px;
+                                -webkit-filter: brightness(70%);
+                                //cursor: pointer;
+
+                                &:hover {
+                                    -webkit-filter: brightness(110%);
+                                }
+                            }
                         }
                     }
                 }
@@ -776,6 +817,10 @@ $color: #fd8234;
                     overflow: hidden;
                     transition: max-height 0.2s ease-out;
                     font-size: 13px;
+
+                    &:last-child {
+                        margin-bottom: 50px;
+                    }
 
                     > p {
                         height: 100%;
