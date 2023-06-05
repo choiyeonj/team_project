@@ -480,6 +480,9 @@ $color: #fd8234;
                     }
                 }
                 .review_form {
+                    border-top: 1px solid #eee;
+                    padding-top: 15px;
+
                     input,
                     select {
                         border: none;
@@ -488,6 +491,11 @@ $color: #fd8234;
                         @include size(200px, 30px);
                         margin: 5px 0;
                     }
+                    #fileUpload {
+                        line-height: 30px;
+                        background-color: #fff;
+                    }
+
                     #comment-input {
                         @include size(650px, 150px);
                         border: none;
@@ -537,7 +545,6 @@ $color: #fd8234;
                 #comments {
                     margin-top: 20px;
                     margin-bottom: 10px;
-                    border-bottom: 1px solid #eee;
 
                     .eachComment {
                         @include size(100%, auto);
@@ -555,17 +562,27 @@ $color: #fd8234;
                             }
                         }
 
+                        .bottom_review {
+                            overflow: hidden;
+
+                            .inputValue {
+                                width: 600px;
+                                padding-top: 10px;
+                                float: left;
+                            }
+                            img {
+                                width: 80px;
+                                height: 80px;
+                                float: right;
+                            }
+                        }
+
                         .name {
                             font-size: 13px;
                             color: #999;
                             padding: 0 10px;
                             display: flex;
                             justify-content: space-between;
-                        }
-
-                        .inputValue {
-                            width: 600px;
-                            padding-top: 10px;
                         }
 
                         .time {

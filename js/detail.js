@@ -184,57 +184,57 @@ let totalPrice = document.getElementById('total_amount');
 let pay = document.querySelector('.total_amount .it_pay');
 let totalCount = document.querySelector('.total_amount .count');
 
-minus.addEventListener('click', numCount('minus'));
-plus.addEventListener('click', numCount('plus'));
+minus.addEventListener('click', minusQty);
+plus.addEventListener('click', plusQty);
 
 let min_qty = 1;
-let this_qty = count.value;
-let max_qty = '200'; // 현재 재고
+let this_qty = count.innerHTML;
+let max_qty = 10; // 현재 재고
 
-// function minusQty() {
-//     this_qty -= 1;
-//     totalCount -= 1;
+function minusQty() {
+    this_qty -= 1;
+    totalCount -= 1;
 
-//     if (this_qty < min_qty) {
-//         alert('수량은 1개 이상 입력해 주십시오.');
-//         return;
-//     }
-
-//     let show_total_amount = basicAmount * this_qty;
-//     pay = show_total_amount;
-//     //totalPrice.html(show_total_amount.format());
-// }
-
-// function plusQty() {
-//     this_qty += 1;
-//     totalCount += 1;
-
-//     if (this_qty > max_qty) {
-//         alert('죄송합니다. 재고가 부족합니다.');
-//         return;
-//     }
-
-//     let show_total_amount = basicAmount * this_qty;
-//     pay = show_total_amount;
-//     //totalPrice.html(show_total_amount.format());
-// }
-function numCount(type) {
-    // 결과를 표시할 element
-    const resultElement = count.innerText;
-
-    // 현재 화면에 표시된 값
-    let number = resultElement.innerText;
-
-    // 더하기/빼기
-    if (type === 'plus') {
-        number = parseInt(number) + 1;
-    } else if (type === 'minus') {
-        number = parseInt(number) - 1;
+    if (this_qty < min_qty) {
+        alert('수량은 1개 이상 입력해 주십시오.');
+        return;
     }
 
-    // 결과 출력
-    resultElement == number;
+    let show_total_amount = basicAmount * this_qty;
+    pay = show_total_amount;
+    //totalPrice.html(show_total_amount.format());
 }
+
+function plusQty() {
+    this_qty += 1;
+    totalCount += 1;
+
+    if (this_qty > max_qty) {
+        alert('죄송합니다. 재고가 부족합니다.');
+        return;
+    }
+
+    let show_total_amount = basicAmount * this_qty;
+    pay = show_total_amount;
+    //totalPrice.html(show_total_amount.format());
+}
+// function numCount(type) {
+//     // 결과를 표시할 element
+//     const resultElement = count.innerText;
+
+//     // 현재 화면에 표시된 값
+//     let number = resultElement.innerText;
+
+//     // 더하기/빼기
+//     if (type === 'plus') {
+//         number = parseInt(number) + 1;
+//     } else if (type === 'minus') {
+//         number = parseInt(number) - 1;
+//     }
+
+//     // 결과 출력
+//     resultElement == number;
+// }
 
 /* -------------delivery_info--------------- */
 const accBox = document.getElementsByClassName('panel');
@@ -296,6 +296,7 @@ let reviewSwiper = new Swiper('.review_swiper', {
 const inputBar = document.getElementById('comment-input');
 const inputName = document.getElementById('name-input');
 const selectOption = document.getElementById('list_option');
+const inputPhoto = document.getElementById('fileUpload');
 const rootDiv = document.getElementById('comments');
 const btn = document.getElementById('submit');
 const ratingStar = document.getElementById('star');
@@ -305,14 +306,9 @@ const mainCommentCount = document.getElementById('count'); //맨위 댓글 숫�
 function generateTime() {
     const date = new Date();
     const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const wDate = date.getDate();
-    const hour = date.getHours();
-    const min = date.getMinutes();
-    const sec = date.getSeconds();
-
-    const time = year + '-' + month + '-' + wDate + ' ' + hour + ':' + min + ':' + sec;
-    return time;
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`;
 }
 
 function deleteComments(event) {
@@ -337,6 +333,8 @@ function showComment(comment) {
     const starValue = document.createElement('div');
     const selectValue = document.createElement('div');
     const topReview = document.createElement('div');
+    const bottomReview = document.createElement('div');
+    const photoValue = document.createElement('img');
     const topWrap = document.createElement('div');
 
     //삭제버튼 만들기
@@ -350,7 +348,9 @@ function showComment(comment) {
     userName.className = 'name';
     starValue.className = 'rating_value';
     selectValue.className = 'option';
+    bottomReview.className = 'bottom_review';
     inputValue.className = 'inputValue';
+    photoValue.id = 'previewImg';
     showTime.className = 'time';
 
     //유저네임가져오기
@@ -370,16 +370,30 @@ function showComment(comment) {
     topWrap.appendChild(userName);
     topReview.appendChild(topWrap);
     topReview.appendChild(showTime);
+    bottomReview.appendChild(inputValue);
+    bottomReview.appendChild(photoValue);
 
     commentList.appendChild(topReview);
     commentList.appendChild(selectValue);
-    commentList.appendChild(inputValue);
+    commentList.appendChild(bottomReview);
     commentList.appendChild(delBtn);
 
     rootDiv.prepend(commentList);
 
     delBtn.addEventListener('click', deleteComments);
     console.dir(rootDiv);
+
+    const handleFiles = (e) => {
+        const selectedFile = [...inputPhoto.files];
+        const fileReader = new FileReader();
+
+        fileReader.readAsDataURL(selectedFile[0]);
+
+        fileReader.onload = function () {
+            photoValue.src = fileReader.result;
+        };
+    };
+    inputPhoto.addEventListener('change', handleFiles);
 }
 
 //버튼만들기+입력값 전달

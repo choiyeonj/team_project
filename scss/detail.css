@@ -400,6 +400,10 @@ img {
   width: 80px;
   float: right;
 }
+.content_wrap .left_content .tab_slide.review .review_form {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
 .content_wrap .left_content .tab_slide.review .review_form input,
 .content_wrap .left_content .tab_slide.review .review_form select {
   border: none;
@@ -408,6 +412,10 @@ img {
   width: 200px;
   height: 30px;
   margin: 5px 0;
+}
+.content_wrap .left_content .tab_slide.review .review_form #fileUpload {
+  line-height: 30px;
+  background-color: #fff;
 }
 .content_wrap .left_content .tab_slide.review .review_form #comment-input {
   width: 650px;
@@ -455,7 +463,6 @@ img {
 .content_wrap .left_content .tab_slide.review #comments {
   margin-top: 20px;
   margin-bottom: 10px;
-  border-bottom: 1px solid #eee;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment {
   width: 100%;
@@ -472,16 +479,25 @@ img {
 .content_wrap .left_content .tab_slide.review #comments .eachComment .top_review .star_wrap {
   display: flex;
 }
+.content_wrap .left_content .tab_slide.review #comments .eachComment .bottom_review {
+  overflow: hidden;
+}
+.content_wrap .left_content .tab_slide.review #comments .eachComment .bottom_review .inputValue {
+  width: 600px;
+  padding-top: 10px;
+  float: left;
+}
+.content_wrap .left_content .tab_slide.review #comments .eachComment .bottom_review img {
+  width: 80px;
+  height: 80px;
+  float: right;
+}
 .content_wrap .left_content .tab_slide.review #comments .eachComment .name {
   font-size: 13px;
   color: #999;
   padding: 0 10px;
   display: flex;
   justify-content: space-between;
-}
-.content_wrap .left_content .tab_slide.review #comments .eachComment .inputValue {
-  width: 600px;
-  padding-top: 10px;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .time {
   font-size: 13px;
