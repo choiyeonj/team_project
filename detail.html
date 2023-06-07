@@ -57,7 +57,6 @@
                     </ul>
                     <div class="swiper-button-next"></div>
                     <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
                 </div>
                 <div class="content_bar">
                     <div class="tab_wrap">
@@ -233,18 +232,23 @@
                             </select>
                         </div>
                         <input type="file" id="fileUpload" accept="image/*" multiple="multiple" />
-                        <div class="rating" id="star">
-                            <input type="radio" name="rating" id="rating1" value="1" class="rate_radio" title="1점" />
-                            <label for="rating1">&#9733;</label>
-                            <input type="radio" name="rating" id="rating2" value="2" class="rate_radio" title="2점" />
-                            <label for="rating2">&#9733;</label>
-                            <input type="radio" name="rating" id="rating3" value="3" class="rate_radio" title="3점" />
-                            <label for="rating3">&#9733;</label>
-                            <input type="radio" name="rating" id="rating4" value="4" class="rate_radio" title="4점" />
-                            <label for="rating4">&#9733;</label>
-                            <input type="radio" name="rating" id="rating5" value="5" class="rate_radio" title="5점" />
-                            <label for="rating5">&#9733;</label>
+                        <div class="rate_radio" id="rating">
+                            ★★★★★
+                            <span>★★★★★</span>
+                            <input type="range" oninput="drawStar(this)" value="1" step="1" min="0" max="5" />
                         </div>
+                        <!-- <div class="rating" id="star">
+                            <input type="checkbox" name="rating" id="rating1" value="★★★★★" class="rate_radio" title="1점" />
+                            <label for="rating1">&#9733;</label>
+                            <input type="checkbox" name="rating" id="rating2" value="★★★★" class="rate_radio" title="2점" />
+                            <label for="rating2">&#9733;</label>
+                            <input type="checkbox" name="rating" id="rating3" value="★★★" class="rate_radio" title="3점" />
+                            <label for="rating3">&#9733;</label>
+                            <input type="checkbox" name="rating" id="rating4" value="★★" class="rate_radio" title="4점" />
+                            <label for="rating4">&#9733;</label>
+                            <input type="checkbox" name="rating" id="rating5" value="★" class="rate_radio" title="5점" />
+                            <label for="rating5">&#9733;</label>
+                        </div> -->
                         <textarea rows="10" id="comment-input" class="review_textarea"></textarea>
                         <button id="submit">등록</button>
                     </div>

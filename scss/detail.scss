@@ -572,7 +572,6 @@ $color: #fd8234;
                             }
                             img {
                                 width: 80px;
-                                height: 80px;
                                 float: right;
                             }
                         }
@@ -607,10 +606,10 @@ $color: #fd8234;
                         li {
                             img {
                                 width: 120px;
-                                -webkit-filter: brightness(70%);
+                                filter: brightness(70%);
 
                                 &:hover {
-                                    -webkit-filter: brightness(110%);
+                                    filter: brightness(110%);
                                 }
                             }
                         }

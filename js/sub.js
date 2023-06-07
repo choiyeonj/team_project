@@ -1,7 +1,7 @@
 import shoppingList from '../js/data.js';
 
 /* -------------header_scroll--------------- */
-const header = document.querySelector('.header');
+//const header = document.getElementById('header');
 const toggleClass = 'is-sticky';
 
 window.addEventListener('scroll', () => {

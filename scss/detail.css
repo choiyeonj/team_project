@@ -489,7 +489,6 @@ img {
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .bottom_review img {
   width: 80px;
-  height: 80px;
   float: right;
 }
 .content_wrap .left_content .tab_slide.review #comments .eachComment .name {
@@ -516,10 +515,10 @@ img {
 }
 .content_wrap .left_content .tab_slide.review .review_swiper ul li img {
   width: 120px;
-  -webkit-filter: brightness(70%);
+  filter: brightness(70%);
 }
 .content_wrap .left_content .tab_slide.review .review_swiper ul li img:hover {
-  -webkit-filter: brightness(110%);
+  filter: brightness(110%);
 }
 .content_wrap .right_content {
   position: fixed;

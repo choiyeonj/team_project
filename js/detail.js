@@ -299,7 +299,7 @@ const selectOption = document.getElementById('list_option');
 const inputPhoto = document.getElementById('fileUpload');
 const rootDiv = document.getElementById('comments');
 const btn = document.getElementById('submit');
-const ratingStar = document.getElementById('star');
+const ratingStar = document.querySelector('#star .rate_radio');
 const mainCommentCount = document.getElementById('count'); //맨위 댓글 숫자 세는거.
 
 //타임스템프 만들기
@@ -356,6 +356,7 @@ function showComment(comment) {
     //유저네임가져오기
     userName.innerHTML = inputName.value;
     starValue.innerHTML = ratingStar.value;
+    console.log(ratingStar);
     selectValue.innerHTML = selectOption.value;
 
     //입력값 넘기기
@@ -381,7 +382,7 @@ function showComment(comment) {
     rootDiv.prepend(commentList);
 
     delBtn.addEventListener('click', deleteComments);
-    console.dir(rootDiv);
+    console.log(rootDiv);
 
     const handleFiles = (e) => {
         const selectedFile = [...inputPhoto.files];
