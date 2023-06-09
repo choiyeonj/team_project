@@ -479,9 +479,22 @@ $color: #fd8234;
                         }
                     }
                 }
+                .review_btn {
+                    float: right;
+                    cursor: pointer;
+
+                    &::after {
+                        content: '';
+                        width: 0;
+                        height: 2px;
+                        display: block;
+                        background-color: #222;
+                    }
+                }
                 .review_form {
                     border-top: 1px solid #eee;
                     padding-top: 15px;
+                    display: none;
 
                     input,
                     select {
@@ -512,6 +525,7 @@ $color: #fd8234;
                         cursor: pointer;
                         float: right;
                     }
+
                     .rating {
                         display: flex;
                         flex-direction: row-reverse;

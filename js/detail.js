@@ -293,6 +293,11 @@ let reviewSwiper = new Swiper('.review_swiper', {
     },
 });
 
+const reviewBtn = document.querySelector('.review_btn');
+const reviewForm = document.querySelector('.review_form');
+
+reviewBtn.addEventListener('click', function () {});
+
 const inputBar = document.getElementById('comment-input');
 const inputName = document.getElementById('name-input');
 const selectOption = document.getElementById('list_option');
@@ -356,7 +361,7 @@ function showComment(comment) {
     //유저네임가져오기
     userName.innerHTML = inputName.value;
     starValue.innerHTML = ratingStar.value;
-    console.log(ratingStar);
+    //console.log(ratingStar);
     selectValue.innerHTML = selectOption.value;
 
     //입력값 넘기기
@@ -382,7 +387,7 @@ function showComment(comment) {
     rootDiv.prepend(commentList);
 
     delBtn.addEventListener('click', deleteComments);
-    console.log(rootDiv);
+    //console.log(rootDiv);
 
     const handleFiles = (e) => {
         const selectedFile = [...inputPhoto.files];

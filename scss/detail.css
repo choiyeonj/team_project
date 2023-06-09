@@ -400,9 +400,21 @@ img {
   width: 80px;
   float: right;
 }
+.content_wrap .left_content .tab_slide.review .review_btn {
+  float: right;
+  cursor: pointer;
+}
+.content_wrap .left_content .tab_slide.review .review_btn::after {
+  content: "";
+  width: 0;
+  height: 2px;
+  display: block;
+  background-color: #222;
+}
 .content_wrap .left_content .tab_slide.review .review_form {
   border-top: 1px solid #eee;
   padding-top: 15px;
+  display: none;
 }
 .content_wrap .left_content .tab_slide.review .review_form input,
 .content_wrap .left_content .tab_slide.review .review_form select {
