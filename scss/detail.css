@@ -346,17 +346,6 @@ img {
 .content_wrap .left_content .tab_slide.notice .notice_wrap > p:first-child {
   font-size: 30px;
 }
-.content_wrap .left_content .tab_slide.notice .notice_wrap > p:first-child::after {
-  content: "";
-  width: 0;
-  height: 2px;
-  display: block;
-  background-color: #222;
-}
-.content_wrap .left_content .tab_slide.notice .notice_wrap > p:first-child:hover::after {
-  width: 108px;
-  transition: all 0.5s;
-}
 .content_wrap .left_content .tab_slide.review {
   padding: 30px;
   background-color: #fff;
@@ -410,6 +399,10 @@ img {
   height: 2px;
   display: block;
   background-color: #222;
+}
+.content_wrap .left_content .tab_slide.review .review_btn:hover::after {
+  width: 85px;
+  transition: all 0.5s;
 }
 .content_wrap .left_content .tab_slide.review .review_form {
   border-top: 1px solid #eee;

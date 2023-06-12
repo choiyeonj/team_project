@@ -188,7 +188,7 @@ minus.addEventListener('click', minusQty);
 plus.addEventListener('click', plusQty);
 
 let min_qty = 1;
-let this_qty = count.innerHTML;
+let this_qty = count.innerText;
 let max_qty = 10; // 현재 재고
 
 function minusQty() {
@@ -218,22 +218,22 @@ function plusQty() {
     pay = show_total_amount;
     //totalPrice.html(show_total_amount.format());
 }
-// function numCount(type) {
+// function count(type) {
 //     // 결과를 표시할 element
-//     const resultElement = count.innerText;
+//     const resultElement = document.getElementById('result');
 
 //     // 현재 화면에 표시된 값
 //     let number = resultElement.innerText;
 
 //     // 더하기/빼기
-//     if (type === 'plus') {
+//     if (type == 'plus') {
 //         number = parseInt(number) + 1;
-//     } else if (type === 'minus') {
+//     } else if (type == 'minus') {
 //         number = parseInt(number) - 1;
 //     }
 
 //     // 결과 출력
-//     resultElement == number;
+//     resultElement.innerText = number;
 // }
 
 /* -------------delivery_info--------------- */
@@ -296,7 +296,9 @@ let reviewSwiper = new Swiper('.review_swiper', {
 const reviewBtn = document.querySelector('.review_btn');
 const reviewForm = document.querySelector('.review_form');
 
-reviewBtn.addEventListener('click', function () {});
+reviewBtn.addEventListener('click', function () {
+    reviewForm.style.display = 'block';
+});
 
 const inputBar = document.getElementById('comment-input');
 const inputName = document.getElementById('name-input');
@@ -414,6 +416,7 @@ function pressBtn() {
         mainCommentCount.innerHTML++;
         inputBar.value = '';
         inputName.value = '';
+        reviewForm.style.display = 'none';
     }
 }
 

@@ -414,20 +414,6 @@ $color: #fd8234;
 
                         &:first-child {
                             font-size: 30px;
-
-                            &::after {
-                                content: '';
-                                width: 0;
-                                height: 2px;
-                                display: block;
-                                background-color: #222;
-                            }
-                            &:hover {
-                                &::after {
-                                    width: 108px;
-                                    transition: all 0.5s;
-                                }
-                            }
                         }
                     }
                 }
@@ -489,6 +475,12 @@ $color: #fd8234;
                         height: 2px;
                         display: block;
                         background-color: #222;
+                    }
+                    &:hover {
+                        &::after {
+                            width: 85px;
+                            transition: all 0.5s;
+                        }
                     }
                 }
                 .review_form {
