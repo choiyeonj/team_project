@@ -259,15 +259,14 @@ function slideUp() {
 
 /* -------------top_btn--------------- */
 const topBtn = document.querySelector('.top_btn');
-const btns = document.getElementsByClassName('buttons');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-        gsap.to(btns, 0.3, {
+        gsap.to(topBtn, 0.3, {
             opacity: 1,
         });
     } else {
-        gsap.to(btns, 0.3, {
+        gsap.to(topBtn, 0.3, {
             opacity: 0,
         });
     }
@@ -278,6 +277,15 @@ topBtn.addEventListener('click', () => {
         scrollTo: 0,
     });
 });
+const hisBtn = document.querySelector('.history_btn');
+const hisList = document.querySelector('.shop_history');
+const hisBlock = 'is-click';
+
+hisBtn.addEventListener('click', openHistory);
+
+function openHistory() {
+    hisList.classList.add(hisBlock);
+}
 
 /* -------------review--------------- */
 let reviewSwiper = new Swiper('.review_swiper', {
@@ -298,6 +306,7 @@ const reviewForm = document.querySelector('.review_form');
 
 reviewBtn.addEventListener('click', function () {
     reviewForm.style.display = 'block';
+    inputName.focus();
 });
 
 const inputBar = document.getElementById('comment-input');
@@ -421,3 +430,92 @@ function pressBtn() {
 }
 
 btn.onclick = pressBtn;
+
+/* -------------cs--------------- */
+const csInput = document.querySelector('#cs-input');
+const csRoot = document.querySelector('#cs-comments');
+const csBtn = document.querySelector('#cs-submit');
+
+//타임스템프 만들기
+// function generateTime() {
+//     const date = new Date();
+//     const year = date.getFullYear();
+//     const month = (date.getMonth() + 1).toString().padStart(2, '0');
+//     const day = date.getDate().toString().padStart(2, '0');
+//     return `${year}-${month}-${day}`;
+// }
+
+//유저이름 발생기
+//유저이름은 8글자로 제한.
+function generateUserName() {
+    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+    var makeUsername = '';
+    for (let i = 0; i < 4; i++) {
+        let index = Math.floor(Math.random(10) * alphabet.length);
+        makeUsername += alphabet[index];
+    }
+    for (let j = 0; j < 4; j++) {
+        makeUsername += '*';
+    }
+    return makeUsername;
+}
+
+// function deleteComments(event) {
+//     const btn = event.target;
+//     csRoot.removeChild(list);
+//     //메인댓글 카운트 줄이기.
+//     if (mainCommentCount.innerHTML <= '0') {
+//         mainCommentCount.innerHTML = 0;
+//     } else {
+//         mainCommentCount.innerHTML--;
+//     }
+// }
+
+//댓글보여주기
+function csShow(comment) {
+    const commentName = document.createElement('div');
+    const inputValue = document.createElement('span');
+    const showTime = document.createElement('div');
+    const countSpan = document.createElement('span');
+    const commentList = document.createElement('div'); //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
+    //삭제버튼 만들기
+    const delBtn = document.createElement('button');
+    delBtn.className = 'csDelete';
+    delBtn.innerHTML = '삭제';
+    commentList.className = 'csEachComment';
+    commentName.className = 'csName';
+    inputValue.className = 'csValue';
+    showTime.className = 'csTime';
+    //유저네임가져오기
+    commentName.innerHTML = generateUserName();
+    commentName.appendChild(delBtn);
+    //입력값 넘기기
+    inputValue.innerText = comment;
+    //타임스템프찍기
+    showTime.innerHTML = generateTime();
+    countSpan.innerHTML = 0;
+
+    //댓글뿌려주기
+    commentList.appendChild(userName);
+    commentList.appendChild(inputValue);
+    commentList.appendChild(showTime);
+
+    rootDiv.prepend(commentList);
+
+    delBtn.addEventListener('click', deleteComments);
+    console.dir(rootDiv);
+}
+
+//버튼만들기+입력값 전달
+function csPressBtn() {
+    const currentVal = csInput.value;
+
+    if (!currentVal.length) {
+        alert('댓글을 입력해주세요!!');
+    } else {
+        csShow(currentVal);
+        csInput.value = '';
+    }
+}
+
+csBtn.onclick = csPressBtn;

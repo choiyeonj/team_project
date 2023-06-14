@@ -347,7 +347,7 @@ img {
   font-size: 30px;
 }
 .content_wrap .left_content .tab_slide.review {
-  padding: 30px;
+  padding: 30px 30px 50px;
   background-color: #fff;
   border: 1px solid #eee;
 }
@@ -390,8 +390,13 @@ img {
   float: right;
 }
 .content_wrap .left_content .tab_slide.review .review_btn {
+  width: 95px;
   float: right;
+  margin-top: 10px;
   cursor: pointer;
+}
+.content_wrap .left_content .tab_slide.review .review_btn > i {
+  margin-left: 5px;
 }
 .content_wrap .left_content .tab_slide.review .review_btn::after {
   content: "";
@@ -524,6 +529,124 @@ img {
 }
 .content_wrap .left_content .tab_slide.review .review_swiper ul li img:hover {
   filter: brightness(110%);
+}
+.content_wrap .left_content .tab_slide.cs {
+  padding: 30px 30px 50px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  height: 900px;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap > p {
+  font-size: 30px;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #222;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment {
+  font-size: 14px;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_title span {
+  display: inline-block;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+  margin-bottom: 30px;
+  padding: 10px 0;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_title span:nth-child(1) {
+  width: 10%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_title span:nth-child(2) {
+  width: 50%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_title span:nth-child(3) {
+  width: 20%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_title span:nth-child(4) {
+  width: 18%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_txt span {
+  display: inline-block;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_txt span:nth-child(1) {
+  width: 10%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_txt span:nth-child(2) {
+  width: 50%;
+  text-align: left;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_txt span:nth-child(3) {
+  width: 20%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment .comment_txt span:nth-child(4) {
+  width: 18%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment > input {
+  outline: none;
+  border: 1px solid #ccc;
+  display: block;
+  width: 200px;
+  height: 30px;
+  margin: 5px 0;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #form-comment {
+  width: 100%;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #form-comment #cs-input {
+  width: 650px;
+  height: 150px;
+  border: none;
+  outline: none;
+  resize: none;
+  background-color: #eee;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #form-comment #cs-submit {
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  border: none;
+  background-color: #efe8da;
+  cursor: pointer;
+  float: right;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #cs-comments {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #cs-comments .csEachComment {
+  width: 100%;
+  height: auto;
+  background-color: #efe8da;
+  padding: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #cs-comments .csEachComment .csName {
+  font-size: 13px;
+  color: #999;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #cs-comments .csEachComment .csValue {
+  font-size: 1.2em;
+  font-style: italic;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #cs-comments .csEachComment .csTime {
+  font-size: 13px;
+  color: #999;
+}
+.content_wrap .left_content .tab_slide.cs .cs_wrap .comment #user-comment #cs-comments .csEachComment .csDelete {
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  color: #222;
+  cursor: pointer;
+  float: right;
 }
 .content_wrap .right_content {
   position: fixed;
@@ -756,6 +879,74 @@ img {
   background-color: #fd8234;
   transition: all 0.3s;
 }
-
-/* -------------header--------------- */
-/* -------------header--------------- *//*# sourceMappingURL=detail.css.map */
+.buttons .history_btn {
+  position: relative;
+}
+.buttons .history_btn .shop_history {
+  position: absolute;
+  top: -500px;
+  left: -390px;
+  width: 480px;
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+.buttons .history_btn .shop_history.is-click {
+  display: block;
+}
+.buttons .history_btn .shop_history h6 {
+  color: #222;
+  padding: 20px;
+}
+.buttons .history_btn .shop_history .his_box > p {
+  color: #fd8234;
+  font-size: 14px;
+  text-align: left;
+  padding: 10px 40px;
+}
+.buttons .history_btn .shop_history .his_box ul li {
+  position: relative;
+  width: 400px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.buttons .history_btn .shop_history .his_box ul li a {
+  margin: 20px 0;
+  border: 1px solid #eee;
+  display: flex;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box {
+  position: relative;
+  width: 300px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box p:nth-child(1) {
+  font-size: 12px;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box p:nth-child(2) {
+  font-size: 13px;
+  font-weight: bold;
+}
+.buttons .history_btn .shop_history .his_box ul li a > .txt_box:hover {
+  border: 1px solid #fd8234;
+  transition: all 0.5s;
+}
+.buttons .history_btn .shop_history .his_box ul li a img {
+  width: 100px;
+  float: left;
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+.buttons .history_btn .shop_history .his_box ul li a .delet_btn span {
+  display: inline-block;
+  color: #ccc;
+  font-size: 16px;
+}/*# sourceMappingURL=detail.css.map */

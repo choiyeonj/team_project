@@ -128,15 +128,14 @@ function openHistory() {
 
 /* top_btn */
 const topBtn = document.querySelector('.top_btn');
-const btn = document.getElementsByClassName('buttons');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-        gsap.to(btn, 0.3, {
+        gsap.to(topBtn, 0.3, {
             opacity: 1,
         });
     } else {
-        gsap.to(btn, 0.3, {
+        gsap.to(topBtn, 0.3, {
             opacity: 0,
         });
     }

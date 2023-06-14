@@ -197,17 +197,16 @@ function slideUp() {
     txtBox.classList.remove('ani');
 }
 
-/* top_btn */
+/* -------------top_btn--------------- */
 const topBtn = document.querySelector('.top_btn');
-const btn = document.getElementsByClassName('buttons');
 
 window.addEventListener('scroll', () => {
     if (window.scrollY > 200) {
-        gsap.to(btn, 0.3, {
+        gsap.to(topBtn, 0.3, {
             opacity: 1,
         });
     } else {
-        gsap.to(btn, 0.3, {
+        gsap.to(topBtn, 0.3, {
             opacity: 0,
         });
     }
@@ -218,3 +217,10 @@ topBtn.addEventListener('click', () => {
         scrollTo: 0,
     });
 });
+const hisBtn = document.querySelector('.history_btn');
+const hisList = document.querySelector('.shop_history');
+
+hisBtn.addEventListener('click', openHistory);
+function openHistory() {
+    hisList.style.display = 'block';
+}
