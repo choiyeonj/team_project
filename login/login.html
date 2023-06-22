@@ -31,7 +31,9 @@
                 const id = document.getElementById('user_id');
                 const password = document.getElementById('user_pw');
                 const loginBtn = document.getElementById('login_btn');
+                const changeLogout = document.getElementById('menu_login');
                 const joinBtn = document.getElementById('join_btn');
+
                 let errPoint = 0;
 
                 let idValue = ['green1234', 'cyj1234', 'front1234'];
@@ -43,6 +45,7 @@
                             if (password.value == pwValue[i]) {
                                 alert(id.value + '님 환영합니다!');
                                 location.replace('../index.html');
+                                changeLogout.innerText = 'Logout';
                                 return;
                             } else {
                                 alert('비밀번호를 다시 한번 확인해주세요.');
@@ -65,8 +68,9 @@
                         }
                     }
                 });
+
                 joinBtn.addEventListener('click', function () {
-                    location.replace('./join.html');
+                    window.open('./join.html', '_blank');
                 });
 
                 let loginBox = document.querySelector('.login_box');
@@ -162,7 +166,7 @@
                             <input type="search" />
                             <button><i class="fas fa-search"></i></button>
                         </li>
-                        <li><a href="../login/login.html">Login</a></li>
+                        <li id="menu_login"><a href="../login/login.html">Login</a></li>
                         <li><a href="../login/login.html">My page</a></li>
                         <li><a href="#!">Cart</a></li>
                     </ul>

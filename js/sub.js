@@ -1,7 +1,7 @@
 import shoppingList from '../js/data.js';
 
 /* -------------header_scroll--------------- */
-//const header = document.getElementById('header');
+const header = document.getElementById('header');
 const toggleClass = 'is-sticky';
 
 window.addEventListener('scroll', () => {
@@ -29,8 +29,22 @@ headerInner.addEventListener('mouseout', function () {
 
 let currentPage = 1;
 const itemsPerPage = 16; // 한 페이지에 표시할 항목의 수
+const ShopSelector = document.querySelector('#shop_selector option');
+const Selector = document.querySelector('#shop_selector');
 
-function createMainBoxes(bestProduct, page) {
+Selector.addEventListener('change', (e) => {
+    if (e.target.value == 0) {
+        ProductSortUp();
+    } else if (e.target.value == 1) {
+        ProductSortDown();
+    } /* else if (e.target.value == '10만원 이하') {
+        ProductFilter();
+    } */ else if (e.target.value == 3) {
+        ProductABC();
+    }
+});
+
+function ProductABC(bestProduct, page) {
     const $mainContainer = $('.product_list');
     $mainContainer.empty(); // 현재 페이지의 내용을 지웁니다.
 
@@ -39,15 +53,15 @@ function createMainBoxes(bestProduct, page) {
 
     // 시작과 끝 인덱스 사이의 데이터만 가져옵니다.
     const pageItems = bestProduct.slice(start, end);
-    console.log(bestProduct);
 
     for (let i = 0; i < pageItems.length; i++) {
+        shoppingList.sort(function compare(a, b) {
+            if (a.anme < b.anme) return -1;
+            else if (a.anme == b.anme) return 0;
+            else return 1;
+        });
         const product = pageItems[i];
         let $mainBox = $(`<a href="detail.html?id=${product.id}" class="main_box"></a>`);
-
-        if (product.best) {
-            $mainBox.append('<div class="best">BEST</div>');
-        }
 
         $mainBox.append(`<img src="${product.src}" alt="">`);
 
@@ -60,6 +74,69 @@ function createMainBoxes(bestProduct, page) {
         $mainContainer.append($mainBox);
     }
 }
+ProductABC(shoppingList, currentPage);
+
+function ProductSortUp(bestProduct, page) {
+    const $mainContainer = $('.product_list');
+    $mainContainer.empty(); // 현재 페이지의 내용을 지웁니다.
+
+    const start = (page - 1) * itemsPerPage; // 시작 인덱스
+    const end = start + itemsPerPage; // 끝 인덱스
+
+    // 시작과 끝 인덱스 사이의 데이터만 가져옵니다.
+    const pageItems = bestProduct.slice(start, end);
+    console.log(shoppingList);
+
+    for (let i = 0; i < pageItems.length; i++) {
+        shoppingList.sort(function compare(a, b) {
+            return a.price - b.price;
+        });
+        const product = pageItems[i];
+        let $mainBox = $(`<a href="detail.html?id=${product.id}" class="main_box"></a>`);
+
+        $mainBox.append(`<img src="${product.src}" alt="">`);
+
+        let $textBox = $('<div class="pro_txt_box"></div>');
+        $textBox.append(`<p class="product_name">${product.name}</p>`);
+        $textBox.append(`<p class="product_price">${product.price}원</p>`);
+
+        $mainBox.append($textBox);
+
+        $mainContainer.append($mainBox);
+    }
+}
+ProductSortUp(shoppingList, currentPage);
+
+function ProductSortDown(bestProduct, page) {
+    const $mainContainer = $('.product_list');
+    $mainContainer.empty(); // 현재 페이지의 내용을 지웁니다.
+
+    const start = (page - 1) * itemsPerPage; // 시작 인덱스
+    const end = start + itemsPerPage; // 끝 인덱스
+
+    // 시작과 끝 인덱스 사이의 데이터만 가져옵니다.
+    const pageItems = bestProduct.slice(start, end);
+    console.log(shoppingList);
+
+    for (let i = 0; i < pageItems.length; i++) {
+        shoppingList.sort(function compare(a, b) {
+            return b.price - a.price;
+        });
+        const product = pageItems[i];
+        let $mainBox = $(`<a href="detail.html?id=${product.id}" class="main_box"></a>`);
+
+        $mainBox.append(`<img src="${product.src}" alt="">`);
+
+        let $textBox = $('<div class="pro_txt_box"></div>');
+        $textBox.append(`<p class="product_name">${product.name}</p>`);
+        $textBox.append(`<p class="product_price">${product.price}원</p>`);
+
+        $mainBox.append($textBox);
+
+        $mainContainer.append($mainBox);
+    }
+}
+ProductSortDown(shoppingList, currentPage);
 
 // 가장 첫 페이지와 마지막 페이지 번호를 변수에 할당합니다.
 const firstPage = 1;
@@ -100,10 +177,8 @@ $('.paging > div').click(function () {
     $('.paging > div')
         .eq(currentPage + 1)
         .addClass('active');
-    createMainBoxes(shoppingList, currentPage);
+    ProductABC(shoppingList, currentPage);
 });
-
-createMainBoxes(shoppingList, currentPage);
 
 /* history_btn */
 // let delBtn = $('.delet_btn');

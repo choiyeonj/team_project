@@ -322,6 +322,23 @@ img {
 .product h1 {
   padding: 60px 0 30px;
 }
+.product .select {
+  display: flex;
+  justify-content: flex-end;
+}
+.product .select #shop_selector {
+  padding: 0 20px 0 8px;
+  background-position: center right 8px;
+  position: relative;
+  display: inline-block;
+  height: 32px;
+  line-height: 30px;
+  background-size: 8px auto;
+  border: 1px solid #bdbdbd;
+  font-size: 14px;
+  cursor: pointer;
+  color: #757575;
+}
 .product .product_list {
   display: flex;
   justify-content: space-between;

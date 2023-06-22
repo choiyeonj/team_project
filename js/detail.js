@@ -1,15 +1,3 @@
-/* -------------header_scroll--------------- */
-// const rightFixed = document.querySelector('.right_wrap');
-// const toggleClass = 'right_fixed';
-
-// window.addEventListener('scroll', () => {
-//     const currentScroll = window.pageYOffset;
-//     if (currentScroll > 350) {
-//         rightFixed.classList.add(toggleClass);
-//     } else {
-//         rightFixed.classList.remove(toggleClass);
-//     }
-// });
 /* -------------aside_lnb--------------- */
 const headerInner = document.getElementById('header');
 
@@ -432,11 +420,11 @@ function pressBtn() {
 btn.onclick = pressBtn;
 
 /* -------------cs--------------- */
-const csInput = document.querySelector('#cs-input');
-const csRoot = document.querySelector('#cs-comments');
-const csBtn = document.querySelector('#cs-submit');
+// const csInput = document.querySelector('#cs-input');
+// const csRoot = document.querySelector('#cs-comments');
+// const csBtn = document.querySelector('#cs-submit');
 
-//타임스템프 만들기
+// //타임스템프 만들기
 // function generateTime() {
 //     const date = new Date();
 //     const year = date.getFullYear();
@@ -445,20 +433,20 @@ const csBtn = document.querySelector('#cs-submit');
 //     return `${year}-${month}-${day}`;
 // }
 
-//유저이름 발생기
-//유저이름은 8글자로 제한.
-function generateUserName() {
-    let alphabet = 'abcdefghijklmnopqrstuvwxyz';
-    var makeUsername = '';
-    for (let i = 0; i < 4; i++) {
-        let index = Math.floor(Math.random(10) * alphabet.length);
-        makeUsername += alphabet[index];
-    }
-    for (let j = 0; j < 4; j++) {
-        makeUsername += '*';
-    }
-    return makeUsername;
-}
+// //유저이름 발생기
+// //유저이름은 8글자로 제한.
+// function generateUserName() {
+//     let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+//     var makeUsername = '';
+//     for (let i = 0; i < 4; i++) {
+//         let index = Math.floor(Math.random(10) * alphabet.length);
+//         makeUsername += alphabet[index];
+//     }
+//     for (let j = 0; j < 4; j++) {
+//         makeUsername += '*';
+//     }
+//     return makeUsername;
+// }
 
 // function deleteComments(event) {
 //     const btn = event.target;
@@ -471,51 +459,51 @@ function generateUserName() {
 //     }
 // }
 
-//댓글보여주기
-function csShow(comment) {
-    const commentName = document.createElement('div');
-    const inputValue = document.createElement('span');
-    const showTime = document.createElement('div');
-    const countSpan = document.createElement('span');
-    const commentList = document.createElement('div'); //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
-    //삭제버튼 만들기
-    const delBtn = document.createElement('button');
-    delBtn.className = 'csDelete';
-    delBtn.innerHTML = '삭제';
-    commentList.className = 'csEachComment';
-    commentName.className = 'csName';
-    inputValue.className = 'csValue';
-    showTime.className = 'csTime';
-    //유저네임가져오기
-    commentName.innerHTML = generateUserName();
-    commentName.appendChild(delBtn);
-    //입력값 넘기기
-    inputValue.innerText = comment;
-    //타임스템프찍기
-    showTime.innerHTML = generateTime();
-    countSpan.innerHTML = 0;
+// //댓글보여주기
+// function csShow(comment) {
+//     const commentName = document.createElement('div');
+//     const inputValue = document.createElement('span');
+//     const showTime = document.createElement('div');
+//     const countSpan = document.createElement('span');
+//     const commentList = document.createElement('div'); //이놈이 스코프 밖으로 나가는 순간 하나지우면 다 지워지고 입력하면 리스트 다불러옴.
+//     //삭제버튼 만들기
+//     const delBtn = document.createElement('button');
+//     delBtn.className = 'csDelete';
+//     delBtn.innerHTML = '삭제';
+//     commentList.className = 'csEachComment';
+//     commentName.className = 'csName';
+//     inputValue.className = 'csValue';
+//     showTime.className = 'csTime';
+//     //유저네임가져오기
+//     commentName.innerHTML = generateUserName();
+//     commentName.appendChild(delBtn);
+//     //입력값 넘기기
+//     inputValue.innerText = comment;
+//     //타임스템프찍기
+//     showTime.innerHTML = generateTime();
+//     countSpan.innerHTML = 0;
 
-    //댓글뿌려주기
-    commentList.appendChild(userName);
-    commentList.appendChild(inputValue);
-    commentList.appendChild(showTime);
+//     //댓글뿌려주기
+//     commentList.appendChild(userName);
+//     commentList.appendChild(inputValue);
+//     commentList.appendChild(showTime);
 
-    rootDiv.prepend(commentList);
+//     rootDiv.prepend(commentList);
 
-    delBtn.addEventListener('click', deleteComments);
-    console.dir(rootDiv);
-}
+//     delBtn.addEventListener('click', deleteComments);
+//     console.dir(rootDiv);
+// }
 
-//버튼만들기+입력값 전달
-function csPressBtn() {
-    const currentVal = csInput.value;
+// //버튼만들기+입력값 전달
+// function csPressBtn() {
+//     const currentVal = csInput.value;
 
-    if (!currentVal.length) {
-        alert('댓글을 입력해주세요!!');
-    } else {
-        csShow(currentVal);
-        csInput.value = '';
-    }
-}
+//     if (!currentVal.length) {
+//         alert('댓글을 입력해주세요!!');
+//     } else {
+//         csShow(currentVal);
+//         csInput.value = '';
+//     }
+// }
 
-csBtn.onclick = csPressBtn;
+// csBtn.onclick = csPressBtn;
