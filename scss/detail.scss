@@ -350,7 +350,7 @@ $color: #fd8234;
                 text-align: center;
                 bottom: 0;
                 background-color: #fff;
-                z-index: 10;
+                z-index: 5;
 
                 .tab_menu {
                     height: 100%;
@@ -878,17 +878,22 @@ $color: #fd8234;
                 padding: 20px 0 20px 50px;
                 font-size: 13px;
 
-                p {
-                    margin-right: 20px;
-                    font-weight: 500;
-                }
-
                 .deli_fee {
                     display: flex;
+
+                    > p {
+                        margin-right: 20px;
+                        font-weight: 500;
+                    }
                 }
                 .card_benefit {
                     display: flex;
                     margin-top: 10px;
+
+                    > p {
+                        margin-right: 20px;
+                        font-weight: 500;
+                    }
 
                     > span {
                         display: inline-block;
@@ -899,11 +904,82 @@ $color: #fd8234;
                         border: 1px solid #ccc;
                         cursor: pointer;
                     }
+
+                    .card_modal {
+                        position: fixed;
+                        top: 25%;
+                        left: 40%;
+                        @include size(340px, 510px);
+                        background-color: #fff;
+                        border: 1px solid #eee;
+                        visibility: hidden;
+                        z-index: 100;
+
+                        .modal_wrap {
+                            background-color: #fff;
+                            height: 100%;
+
+                            .back_dark {
+                                position: fixed;
+                                top: 0;
+                                left: 0;
+                                width: 100vw;
+                                height: 100vh;
+                                background-color: #2222224f;
+                                z-index: -1;
+                            }
+
+                            > i {
+                                font-size: 25px;
+                                float: right;
+                                padding: 5px 10px;
+                                cursor: pointer;
+                            }
+
+                            .modal_txt {
+                                padding: 20px;
+
+                                > h2 {
+                                    padding: 10px 0;
+                                    font-size: 25px;
+                                }
+                                > p {
+                                    font-size: 18px;
+                                    padding-bottom: 20px;
+                                }
+                                > span {
+                                    display: inline-block;
+                                    line-height: 50px;
+                                    padding: 0 27px;
+                                    font-size: 16px;
+                                }
+                                > span:nth-child(3) {
+                                    font-weight: bold;
+                                }
+                                > span:nth-child(4) {
+                                    color: #777;
+                                }
+                            }
+
+                            .modal_btn {
+                                @include size(260px, 40px);
+                                background-color: #261c13;
+                                color: #fff;
+                                border-radius: 80px;
+                                margin: 0 auto;
+                                text-align: center;
+                                line-height: 40px;
+                                font-size: 16px;
+                                letter-spacing: 1.3px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
                 }
             }
             .total_price {
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-evenly;
                 align-items: center;
                 height: 100px;
                 border-right: 1px solid #eee;
@@ -911,11 +987,11 @@ $color: #fd8234;
 
                 .qty {
                     display: flex;
-                    input {
+                    span {
                         @include size(36px, 36px);
                         border: 1px solid #eee;
-                        outline: none;
                         text-align: center;
+                        line-height: 33px;
                     }
 
                     .pm {
@@ -933,6 +1009,10 @@ $color: #fd8234;
                         border-right: none;
                     }
                 }
+
+                .pay_box {
+                    display: flex;
+                }
             }
             .add_btn {
                 overflow: hidden;
@@ -948,11 +1028,23 @@ $color: #fd8234;
                     height: 70px;
                     float: left;
                     background-color: #efe8da;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: #261c13;
+                        color: #fff;
+                    }
                 }
                 .cart_btn {
                     width: 50%;
                     height: 70px;
                     float: left;
+                    transition: all 0.3s ease;
+
+                    &:hover {
+                        background-color: #261c13;
+                        color: #fff;
+                    }
                 }
             }
             .acc_menu {

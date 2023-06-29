@@ -144,85 +144,68 @@ for (let i = 0; i < colorBtn.length; i++) {
     });
 }
 
-Number.prototype.formatNumber = function () {
-    if (this == 0) return 0;
+/* -------------card_benefit--------------- */
+const modalBtn = document.querySelector('.card_benefit > span');
+const cardModal = document.querySelector('.card_benefit .card_modal');
+const closeModal = document.querySelector('.card_modal .modal_wrap > i');
+const closeModal2 = document.querySelector('.card_modal .modal_wrap .modal_btn > p');
 
-    let regex = /(^[+-]?\d+)(\d)/;
-
-    let nstr = this + '';
-
-    while (regex.test(nstr)) nstr = nstr.replace(regex, '$1' + ',' + '$2');
-
-    return nstr;
+modalBtn.onclick = function () {
+    cardModal.style.visibility = 'visible';
+};
+closeModal.onclick = function () {
+    cardModal.style.visibility = 'hidden';
+};
+closeModal2.onclick = function () {
+    cardModal.style.visibility = 'hidden';
 };
 
-String.prototype.format = function () {
-    let num = parseFloat(this);
-    if (isNaN(num)) return '0';
+/* -------------price_count--------------- */
+let price = document.querySelector('.total_price .it_pay');
+let productPrice = price.dataset.price;
+let totalPrice = price.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-    return num.format();
-};
+price.innerHTML = totalPrice;
 
-let basicAmount = parseInt('230000');
+const plusBtn = document.getElementById('plus');
+const minusBtn = document.getElementById('minus');
+const resultElement = document.getElementById('result');
+let totalNumber = resultElement.innerHTML;
 
-const minus = document.getElementById('minus');
-const plus = document.getElementById('plus');
-const count = document.getElementById('count_qty');
-let totalPrice = document.getElementById('total_amount');
-let pay = document.querySelector('.total_amount .it_pay');
-let totalCount = document.querySelector('.total_amount .count');
+plusBtn.addEventListener('click', plusCount);
+minusBtn.addEventListener('click', minusCount);
 
-minus.addEventListener('click', minusQty);
-plus.addEventListener('click', plusQty);
+function plusCount() {
+    totalNumber = parseInt(totalNumber) + 1;
+    resultElement.innerHTML = totalNumber;
+    let setPrice = totalNumber * productPrice;
+    price.innerHTML = setPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    console.log(totalNumber);
+    console.log(setPrice);
 
-let min_qty = 1;
-let this_qty = count.innerText;
-let max_qty = 10; // 현재 재고
-
-function minusQty() {
-    this_qty -= 1;
-    totalCount -= 1;
-
-    if (this_qty < min_qty) {
+    if (totalNumber < 1) {
         alert('수량은 1개 이상 입력해 주십시오.');
-        return;
-    }
-
-    let show_total_amount = basicAmount * this_qty;
-    pay = show_total_amount;
-    //totalPrice.html(show_total_amount.format());
-}
-
-function plusQty() {
-    this_qty += 1;
-    totalCount += 1;
-
-    if (this_qty > max_qty) {
+    } else if (totalNumber > 10) {
         alert('죄송합니다. 재고가 부족합니다.');
-        return;
+    }
+    return setPrice;
+}
+function minusCount() {
+    totalNumber = parseInt(totalNumber) - 1;
+    resultElement.innerHTML = totalNumber;
+    let setPrice = totalNumber * productPrice;
+    price.innerHTML = setPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    console.log(totalNumber);
+    console.log(setPrice);
+
+    if (totalNumber < 1) {
+        alert('수량은 1개 이상 입력해 주십시오.');
+    } else if (totalNumber > 10) {
+        alert('죄송합니다. 재고가 부족합니다.');
     }
 
-    let show_total_amount = basicAmount * this_qty;
-    pay = show_total_amount;
-    //totalPrice.html(show_total_amount.format());
+    return setPrice;
 }
-// function count(type) {
-//     // 결과를 표시할 element
-//     const resultElement = document.getElementById('result');
-
-//     // 현재 화면에 표시된 값
-//     let number = resultElement.innerText;
-
-//     // 더하기/빼기
-//     if (type == 'plus') {
-//         number = parseInt(number) + 1;
-//     } else if (type == 'minus') {
-//         number = parseInt(number) - 1;
-//     }
-
-//     // 결과 출력
-//     resultElement.innerText = number;
-// }
 
 /* -------------delivery_info--------------- */
 const accBox = document.getElementsByClassName('panel');

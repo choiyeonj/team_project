@@ -22,9 +22,6 @@
         <!-- axios -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-        <!-- lodash -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"></script>
-
         <!-- jquery -->
         <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
@@ -358,6 +355,24 @@
                         <div class="card_benefit">
                             <p>카드혜택</p>
                             <span>?</span>
+                            <div class="card_modal">
+                                <div class="modal_wrap">
+                                    <i class="fas fa-times"></i>
+                                    <div class="modal_txt">
+                                        <h2>카드혜택 안내</h2>
+                                        <p>5만원 이상 결제 시</p>
+                                        <span>
+                                            우리카드 <br />
+                                            하나카드 <br />롯데카드 <br />현대카드 <br />NH농협카드 <br />BC카드
+                                        </span>
+                                        <span>2-6개월 무이자 <br />2-3개월 무이자 <br />2-3개월 무이자 <br />2-3개월 무이자 <br />2-4개월 무이자 <br />2-6개월 무이자</span>
+                                    </div>
+                                    <div class="modal_btn">
+                                        <p>확인</p>
+                                    </div>
+                                    <div class="back_dark"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <!-- delivery_notice -->
@@ -365,17 +380,14 @@
                     <div class="total_price">
                         <p>총 상품 금액 (수량)</p>
                         <div class="qty">
-                            <!-- <input type="button" onclick="count(plus)" value="+" />
-                            <div id="result">0</div>
-                            <input type="button" onclick="count(minus)" value="-" /> -->
-                            <button id="minus" class="minus pm">-</button>
-                            <input type="text" name="count_qty" id="count_qty" value="1" readonly="readonly" />
-                            <button id="plus" class="plus pm">+</button>
+                            <button type="button" id="minus" class="minus pm">-</button>
+                            <span id="result">1</span>
+                            <button type="button" id="plus" class="plus pm">+</button>
                         </div>
-                        <p id="total_amount">
-                            <span class="it_pay">230,000원</span>
-                            <span class="count">(1 개)</span>
-                        </p>
+                        <div class="pay_box">
+                            <p class="it_pay" data-price="230000">230000</p>
+                            <span> 원</span>
+                        </div>
                     </div>
                     <!-- total_price -->
 

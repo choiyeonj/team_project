@@ -290,7 +290,7 @@ img {
   text-align: center;
   bottom: 0;
   background-color: #fff;
-  z-index: 10;
+  z-index: 5;
 }
 .content_wrap .left_content .content_bar .tab_wrap .tab_menu {
   height: 100%;
@@ -749,16 +749,20 @@ img {
   padding: 20px 0 20px 50px;
   font-size: 13px;
 }
-.content_wrap .right_content .right_wrap .delivery_notice p {
-  margin-right: 20px;
-  font-weight: 500;
-}
 .content_wrap .right_content .right_wrap .delivery_notice .deli_fee {
   display: flex;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .deli_fee > p {
+  margin-right: 20px;
+  font-weight: 500;
 }
 .content_wrap .right_content .right_wrap .delivery_notice .card_benefit {
   display: flex;
   margin-top: 10px;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit > p {
+  margin-right: 20px;
+  font-weight: 500;
 }
 .content_wrap .right_content .right_wrap .delivery_notice .card_benefit > span {
   display: inline-block;
@@ -771,9 +775,75 @@ img {
   border: 1px solid #ccc;
   cursor: pointer;
 }
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal {
+  position: fixed;
+  top: 25%;
+  left: 40%;
+  width: 340px;
+  height: 510px;
+  background-color: #fff;
+  border: 1px solid #eee;
+  visibility: hidden;
+  z-index: 100;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap {
+  background-color: #fff;
+  height: 100%;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .back_dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(34, 34, 34, 0.3098039216);
+  z-index: -1;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap > i {
+  font-size: 25px;
+  float: right;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_txt {
+  padding: 20px;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_txt > h2 {
+  padding: 10px 0;
+  font-size: 25px;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_txt > p {
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_txt > span {
+  display: inline-block;
+  line-height: 50px;
+  padding: 0 27px;
+  font-size: 16px;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_txt > span:nth-child(3) {
+  font-weight: bold;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_txt > span:nth-child(4) {
+  color: #777;
+}
+.content_wrap .right_content .right_wrap .delivery_notice .card_benefit .card_modal .modal_wrap .modal_btn {
+  width: 260px;
+  height: 40px;
+  background-color: #261c13;
+  color: #fff;
+  border-radius: 80px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 40px;
+  font-size: 16px;
+  letter-spacing: 1.3px;
+  cursor: pointer;
+}
 .content_wrap .right_content .right_wrap .total_price {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   height: 100px;
   border-right: 1px solid #eee;
@@ -782,12 +852,12 @@ img {
 .content_wrap .right_content .right_wrap .total_price .qty {
   display: flex;
 }
-.content_wrap .right_content .right_wrap .total_price .qty input {
+.content_wrap .right_content .right_wrap .total_price .qty span {
   width: 36px;
   height: 36px;
   border: 1px solid #eee;
-  outline: none;
   text-align: center;
+  line-height: 33px;
 }
 .content_wrap .right_content .right_wrap .total_price .qty .pm {
   width: 36px;
@@ -805,6 +875,9 @@ img {
 .content_wrap .right_content .right_wrap .total_price .qty .minus {
   border-right: none;
 }
+.content_wrap .right_content .right_wrap .total_price .pay_box {
+  display: flex;
+}
 .content_wrap .right_content .right_wrap .add_btn {
   overflow: hidden;
   height: 70px;
@@ -819,11 +892,21 @@ img {
   height: 70px;
   float: left;
   background-color: #efe8da;
+  transition: all 0.3s ease;
+}
+.content_wrap .right_content .right_wrap .add_btn .purchase_btn:hover {
+  background-color: #261c13;
+  color: #fff;
 }
 .content_wrap .right_content .right_wrap .add_btn .cart_btn {
   width: 50%;
   height: 70px;
   float: left;
+  transition: all 0.3s ease;
+}
+.content_wrap .right_content .right_wrap .add_btn .cart_btn:hover {
+  background-color: #261c13;
+  color: #fff;
 }
 .content_wrap .right_content .right_wrap .acc_menu {
   height: 100%;
